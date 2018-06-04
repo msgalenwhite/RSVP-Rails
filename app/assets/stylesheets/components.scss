@@ -1,0 +1,124 @@
+@import 'colors';
+
+body {
+  background-color: $dark-sangria;
+  font-size: 1.3em;
+  font-family: 'Karma', serif;
+}
+
+.page {
+  padding: 10px;
+  margin: 10px;
+  background-color: $light-nude;
+  min-height: 100vh;
+}
+
+// CHANGE HIGHLIGHT COLOR FOR TEXT
+::selection {
+  background: lighten($light-sangria, 30%); /* WebKit/Blink Browsers */
+}
+::-moz-selection {
+  background: lighten($light-sangria, 30%); /* Gecko Browsers */
+}
+
+// TEXT
+.heading {
+  text-align: center;
+  font-size: 2em;
+  font-family: 'Merienda', cursive;
+}
+
+.title {
+  font-size: 1.3em;
+  font-weight: normal;
+  font-family: 'Merienda', cursive;
+}
+
+.error {
+  font-style: italic;
+  color: $brick;
+}
+
+.center {
+  text-align: center;
+}
+
+// INPUTS
+textarea {
+  width: 80%;
+  min-height: 100px;
+}
+
+input:focus {
+  outline: none;
+}
+
+input[type=text], input[type=textarea] {
+  background-color: $lighter-nude;
+  border: 2px solid $dark-sangria;
+  font-size: 1em;
+  padding: 5px;
+  border-radius: 10px;
+}
+
+// BUTTONS
+.button {
+  background-color: $light-sangria;
+  border-radius: 5px;
+  margin: 10px;
+  padding: 7px 10px 3px 10px;
+  border: none;
+  font-size: 18px;
+  color: $light-nude;
+  font-family: 'Karma', serif;
+}
+
+.button:hover {
+  background-color: $sangria;
+}
+
+// RSVP SUMMARY
+.diet {
+  text-align: center;
+}
+
+.rsvp-summary {
+  align-items: center;
+  display: flex;
+  justify-content: space-around;
+}
+
+// STORY
+.story {
+  align-items: center;
+  display: flex;
+  justify-content: space-around;
+}
+
+.finished-story {
+  justify-content: center;
+}
+
+.finished-story-text {
+  border-radius: 10px;
+  background-color: $lighter-nude;
+  margin: 10px;
+  padding: 10px;
+  width: 50%;
+  font-size: 0.8em;
+}
+
+// Links
+a {
+  color: $sangria;
+  font-weight: bold;
+  text-decoration: none;
+}
+a:hover {
+  font-size: 1.1em;
+}
+
+.fa-arrow-alt-left {
+  font-size: 50px;
+  color: black;
+}
