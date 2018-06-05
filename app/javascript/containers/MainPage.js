@@ -129,6 +129,9 @@ class MainPage extends Component {
     event.preventDefault();
 
     if (this.isSignInComplete()) {
+      // send submitted name and password to the backend
+      // Rails checks if password is correct - otherwise it kicks you back with a flash alert
+      // Rails checks if name is in invitations - otherwise it kicks you back with a flash alert
 
       invitees.forEach((familyArray) => {
 
@@ -293,7 +296,7 @@ class MainPage extends Component {
             Galen and Chris are Getting Married!
           </div>
           <p className='center'>
-            Please sign in with your first and last name,<br/>
+            Please enter your first and last name,<br/>
             and the password from your invitation.
           </p>
           <SignIn
