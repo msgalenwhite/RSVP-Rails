@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 describe Rsvp, :type => :model do
+  let(:test_rsvp) { FactoryBot.create(:rsvp) }
+
   context 'validations' do
     it { should have_valid(:first_name).when("name") }
     it { should_not have_valid(:first_name).when(nil, "") }
@@ -20,5 +22,13 @@ describe Rsvp, :type => :model do
   context 'associations' do
     it { belong_to(:invite) }
     it { belong_to(:user) }
+  end
+
+  context 'methods' do
+    describe '#full_name' do
+      it 'returns a string with first and last name separated by a space' do
+        expect(test_rsvp.full_name).to eq("#{test_rsvp.first_name} #{test_rsvp.last_name}")
+      end
+    end
   end
 end
