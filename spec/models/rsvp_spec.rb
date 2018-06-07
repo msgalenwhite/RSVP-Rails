@@ -19,5 +19,6 @@ describe Rsvp, :type => :model do
 
   context 'associations' do
     it { belong_to(:invite) }
+    it { belong_to(:user) }
   end
 end
