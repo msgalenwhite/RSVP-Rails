@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 2018_06_07_025103) do
     t.boolean "is_attending", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "invitation_id", null: false
+    t.integer "invite_id", null: false
   end
 
   create_table "users", force: :cascade do |t|
