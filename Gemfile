@@ -42,6 +42,12 @@ group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
 end
 
+group :test do
+
+  # even though we have 'shoulda_matchers', we need 'shoulda' to test associations using 'belong_to'
+  gem 'shoulda'
+end
+
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
