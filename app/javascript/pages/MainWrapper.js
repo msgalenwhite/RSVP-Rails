@@ -30,9 +30,9 @@ class MainWrapper extends Component {
       .then ( response => response.json() )
       .then ( response => {
         if (response["error"]) {
-          debugger
           this.setState({ errorParams: response })
         } else {
+          debugger
           this.setState({
             fellowInvitees: response,
             errorParams: null
@@ -44,7 +44,6 @@ class MainWrapper extends Component {
 
 
   render() {
-    console.log(this.state)
     return(
       <MainPage
         getInvitees={this.getInvitees}

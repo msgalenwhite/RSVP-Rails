@@ -21,10 +21,6 @@ class MainPage extends Component {
     this.isFormComplete = this.isFormComplete.bind(this)
   }
 
-  static getDerivedStateFromProps(nextProps, prevState) {
-    debugger
-  }
-
   componentDidUpdate() {
     if (this.props.errorParams && this.state.password !== "") {
       this.setState({
@@ -40,6 +36,8 @@ class MainPage extends Component {
     if (!this.isFormComplete()) {
       this.setState({ errorMessage: "Only a complete form can be submitted." })
     } else {
+      this.setState({ errorMessage: null })
+
       const formData = {
         invite: {
           first_name: this.state.firstName,
@@ -76,7 +74,6 @@ class MainPage extends Component {
   }
 
   render() {
-    console.log(this.props)
     return(
       <div>
         <div className='greeting'>
