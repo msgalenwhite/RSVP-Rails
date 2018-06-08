@@ -6,7 +6,7 @@ class MainWrapper extends Component {
     super(props);
     this.state = {
       fellowInvitees: [],
-      errorParams: {}
+      errorParams: null
     }
     this.getInvitees = this.getInvitees.bind(this)
   }
@@ -18,27 +18,37 @@ class MainWrapper extends Component {
       body: JSON.stringify(formData),
       headers: { 'Content-Type': 'application/json' }
     })
-    .then ( response => response.json() )
     .then ( response => {
-      const responseObject = {
-        text: response.body,
-        status: response.ok
-      }
-      debugger
-      return responseObject
-    })
-    .then ( response => {
-      debugger
-    })
+        if ( response.ok ) {
+          return response;
+        } else {
+          let errorMessage = `${response.status} (${response.statusText})`;
+          let error = new Error(errorMessage);
+          throw(error);
+        }
+      })
+      .then ( response => response.json() )
+      .then ( response => {
+        if (response["error"]) {
+          debugger
+          this.setState({ errorParams: response })
+        } else {
+          this.setState({
+            fellowInvitees: response,
+            errorParams: null
+          })
+        }
+      })
+      .catch ( error => console.error(`Error in fetch: ${error.message}`) );
   }
 
 
   render() {
-
+    console.log(this.state)
     return(
       <MainPage
         getInvitees={this.getInvitees}
-        errorParams={this.errorParams}
+        errorParams={this.state.errorParams}
       />
     )
   }

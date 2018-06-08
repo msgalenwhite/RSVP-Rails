@@ -8,8 +8,9 @@ class Api::V1::InvitesController < ApplicationController
       # find the invitation associated with that RSVP
       # return an invitation object for all people associated on that invite
     else
-      flash[:wrong_password] = "Your password is not correct."
-      render json: params, status: 400
+      params[:error] = true
+      params[:message] = "Your password was incorrect."
+      render json: params, status: 200
     end
   end
 

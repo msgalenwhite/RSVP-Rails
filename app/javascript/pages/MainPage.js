@@ -11,7 +11,6 @@ class MainPage extends Component {
   constructor(props){
     super(props);
     this.state = {
-      nameOptions: [],
       firstName: "",
       lastName: "",
       password: "",
@@ -22,22 +21,17 @@ class MainPage extends Component {
     this.isFormComplete = this.isFormComplete.bind(this)
   }
 
-  componentDidMount() {
-    fetch("/api/v1/rsvps.json")
-      .then ( response => {
-        if ( response.ok ) {
-          return response;
-        } else {
-          let errorMessage = `${response.status} (${response.statusText})`;
-          let error = new Error(errorMessage);
-          throw(error);
-        }
+  static getDerivedStateFromProps(nextProps, prevState) {
+    debugger
+  }
+
+  componentDidUpdate() {
+    if (this.props.errorParams && this.state.password !== "") {
+      this.setState({
+        password: "",
+        errorMessage: this.props.errorParams["message"]
       })
-      .then ( response => response.json() )
-      .then ( response => {
-        this.setState({ nameOptions: response })
-      })
-      .catch ( error => console.error(`Error in fetch: ${error.message}`) );
+    }
   }
 
   handleSubmit(event) {
@@ -82,6 +76,7 @@ class MainPage extends Component {
   }
 
   render() {
+    console.log(this.props)
     return(
       <div>
         <div className='greeting'>
