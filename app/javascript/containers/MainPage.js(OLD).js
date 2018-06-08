@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 
-import SignIn from './SignIn'
+// import SignIn from './SignIn'
 import RsvpForm from './RsvpForm'
 import ReviewAndStoryPage from './ReviewAndStoryPage'
 
@@ -118,51 +118,78 @@ class MainPage extends Component {
     }
   }
 
-  isSignInComplete () {
-    if (this.state.name === "" || this.state.password === "") {
-      return false;
-    }
-    return true;
-  }
+  // isSignInComplete () {
+  //   if (this.state.name === "" || this.state.password === "") {
+  //     return false;
+  //   }
+  //   return true;
+  // }
 
-  handleSignInSubmit (event) {
-    event.preventDefault();
-
-    if (this.isSignInComplete()) {
-      // send submitted name and password to the backend
-      // Rails checks if password is correct - otherwise it kicks you back with a flash alert
-      // Rails checks if name is in invitations - otherwise it kicks you back with a flash alert
-
-      invitees.forEach((familyArray) => {
-
-        let nameIsCorrect = familyArray.includes(this.state.name);
-        let passwordIsCorrect = this.state.password === passwords.newRSVP
-
-        if (nameIsCorrect && passwordIsCorrect) {
-
-          this.createFamilyObject(familyArray);
-
-        } else if (nameIsCorrect) {
-          this.setState({
-            signInErrors: {
-              ...this.state.signInErrors,
-              password: true
-            }
-          })
-        }
-      })
-    } else {
-      this.setState({
-        signInErrors: {
-          ...this.state.signInErrors,
-          generic: true
-        }
-      })
-    }
-
-    //if we have not hit anything above, that means that the NAME is wrong
-
-  }
+  // handleSignInSubmit (event) {
+  //   event.preventDefault();
+  //
+  //   if (this.isSignInComplete()) {
+  //     // send submitted name and password to the backend
+  //     // Rails checks if password is correct - otherwise it kicks you back with a flash alert
+  //     // Rails checks if name is in invitations - otherwise it kicks you back with a flash alert
+  //     const formData = {
+  //       name: this.name,
+  //       password: this.password
+  //     }
+  //
+  //     fetch("/api/v1/user_votes", {
+  //     credentials: 'same-origin',
+  //     method: 'POST',
+  //     body: JSON.stringify(formData),
+  //     headers: { 'Content-Type': 'application/json' }
+  //     })
+  //     .then ( response => {
+  //       if ( response.ok ) {
+  //         return response;
+  //       } else {
+  //         let errorMessage = `${response.status} (${response.statusText})`;
+  //         let error = new Error(errorMessage);
+  //         throw(error);
+  //       }
+  //     })
+  //     .then ( response => response.json() )
+  //     .then ( response => {
+  //       // this.triggerFetch()
+  //     })
+  //     .catch ( error => console.error(`Error in fetch: ${error.message}`));
+  //
+  //
+  //
+  //     // invitees.forEach((familyArray) => {
+  //     //
+  //     //   let nameIsCorrect = familyArray.includes(this.state.name);
+  //     //   let passwordIsCorrect = this.state.password === passwords.newRSVP
+  //     //
+  //     //   if (nameIsCorrect && passwordIsCorrect) {
+  //     //
+  //     //     this.createFamilyObject(familyArray);
+  //     //
+  //     //   } else if (nameIsCorrect) {
+  //     //     this.setState({
+  //     //       signInErrors: {
+  //     //         ...this.state.signInErrors,
+  //     //         password: true
+  //     //       }
+  //     //     })
+  //     //   }
+  //     // })
+  //   } else {
+  //     this.setState({
+  //       signInErrors: {
+  //         ...this.state.signInErrors,
+  //         generic: true
+  //       }
+  //     })
+  //   }
+  //
+  //   //if we have not hit anything above, that means that the NAME is wrong
+  //
+  // }
 
   createFamilyObject(familyArray) {
     let familyObject = {}
@@ -291,22 +318,22 @@ class MainPage extends Component {
       />
     } else {
       renderedComponent =
-        <div>
-          <div className='greeting'>
-            Galen and Chris are Getting Married!
-          </div>
-          <p className='center'>
-            Please enter your first and last name,<br/>
-            and the password from your invitation.
-          </p>
-          <SignIn
-            handleTextChange={this.handleTextChange}
-            name={this.state.name}
-            password={this.state.password}
-            handleSubmit={this.handleSignInSubmit}
-            errors={this.state.signInErrors}
-          />
-        </div>
+        // <div>
+        //   <div className='greeting'>
+        //     Galen and Chris are Getting Married!
+        //   </div>
+        //   <p className='center'>
+        //     Please enter your first and last name,<br/>
+        //     and the password from your invitation.
+        //   </p>
+        //   <SignIn
+        //     handleTextChange={this.handleTextChange}
+        //     name={this.state.name}
+        //     password={this.state.password}
+        //     handleSubmit={this.handleSignInSubmit}
+        //     errors={this.state.signInErrors}
+        //   />
+        // </div>
     }
 
     return (
