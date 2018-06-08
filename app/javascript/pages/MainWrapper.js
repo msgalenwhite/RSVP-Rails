@@ -5,7 +5,8 @@ class MainWrapper extends Component {
   constructor(props){
     super(props);
     this.state = {
-      fellowInvitees: []
+      fellowInvitees: [],
+      errorParams: {}
     }
     this.getInvitees = this.getInvitees.bind(this)
   }
@@ -17,20 +18,18 @@ class MainWrapper extends Component {
       body: JSON.stringify(formData),
       headers: { 'Content-Type': 'application/json' }
     })
-    .then ( response => {
-      if ( response.ok ) {
-        return response;
-      } else {
-        let errorMessage = `${response.status} (${response.statusText})`;
-        let error = new Error(errorMessage);
-        throw(error);
-      }
-    })
     .then ( response => response.json() )
+    .then ( response => {
+      const responseObject = {
+        text: response.body,
+        status: response.ok
+      }
+      debugger
+      return responseObject
+    })
     .then ( response => {
       debugger
     })
-    .catch ( error => console.error(`Error in fetch: ${error.message}`));
   }
 
 
@@ -39,6 +38,7 @@ class MainWrapper extends Component {
     return(
       <MainPage
         getInvitees={this.getInvitees}
+        errorParams={this.errorParams}
       />
     )
   }
