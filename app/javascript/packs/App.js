@@ -12,7 +12,7 @@ const App = props => {
         component={MainPage}
       />
       <Route
-        path='/invite/:id'
+        path='/invites/:id'
         component={RsvpPage}
       />
     </Router>
