@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import TextInputField from '../components/TextInputField'
+import PopUp from '../components/PopUp'
 
 //this page will have a dropdown with names, and a password field.  Once all are complete, use fetch post to send to backend
 
@@ -14,12 +15,13 @@ class MainPage extends Component {
       firstName: "",
       lastName: "",
       password: "",
-      errorMessage: null
+      errorMessage: null,
+      rsvp_info: null
     }
     this.clearForm = this.clearForm.bind(this)
+    this.findInvite = this.findInvite.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleTextChange = this.handleTextChange.bind(this)
-    this.findInvite = this.findInvite.bind(this)
     this.isFormComplete = this.isFormComplete.bind(this)
   }
 
@@ -28,7 +30,8 @@ class MainPage extends Component {
       firstName: "",
       lastName: "",
       password: "",
-      errorMessage: null
+      errorMessage: null,
+      rsvp_info: null
     })
   }
 
@@ -56,8 +59,13 @@ class MainPage extends Component {
             password: ""
           })
         } else {
-          debugger
-          this.clearForm()
+          this.setState({ rsvp_info: response })
+
+          $(document).ready(function() {
+            setTimeout(function(){
+              $("#myModal").foundation('reveal', 'open');
+            }, 0);
+          });
         }
       })
       .catch ( error => console.error(`Error in fetch: ${error.message}`) );
@@ -108,6 +116,13 @@ class MainPage extends Component {
   }
 
   render() {
+    let name = "Just a moment...";
+    let inviteNum;
+
+    if (this.state.rsvp_info) {
+      name = `Are you ${this.state.rsvp_info.full_name}?`,
+      inviteNum = this.state.rsvp_info.invite_id
+    }
     return(
       <div>
         <div className='greeting'>
@@ -147,6 +162,11 @@ class MainPage extends Component {
             Submit
           </button>
         </form>
+        <PopUp
+          name={name}
+          inviteNum={inviteNum}
+          clearForm={this.clearForm}
+        />
       </div>
     )
   }

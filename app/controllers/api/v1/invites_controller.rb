@@ -4,9 +4,9 @@ class Api::V1::InvitesController < ApplicationController
   def find
     params = safe_params
     if params[:password] == ENV["WEDDING_PASSWORD"]
-      # look for RSVP with that combination of first and last name (maybe add an index to make this search faster?)
-      # find the invitation associated with that RSVP
-      # return an invitation object for all people associated on that invite
+      target_rsvp = Rsvp.find_by_first_name_and_last_name(params[:first_name], params[:last_name])
+
+      render json: target_rsvp, status: 200
     else
       params[:error] = true
       params[:message] = "Your password was incorrect."

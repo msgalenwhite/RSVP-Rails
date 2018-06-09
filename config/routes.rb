@@ -8,4 +8,5 @@ Rails.application.routes.draw do
       post '/invites/find.json' => 'invites#find'
     end
   end
+  resources :invites, only: [:show]
 end
