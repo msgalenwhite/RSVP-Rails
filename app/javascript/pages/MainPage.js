@@ -16,19 +16,53 @@ class MainPage extends Component {
       password: "",
       errorMessage: null
     }
+    this.clearForm = this.clearForm.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleTextChange = this.handleTextChange.bind(this)
+    this.findInvite = this.findInvite.bind(this)
     this.isFormComplete = this.isFormComplete.bind(this)
   }
 
-  componentDidUpdate() {
-    if (this.props.errorParams && this.state.password !== "") {
-      this.setState({
-        password: "",
-        errorMessage: this.props.errorParams["message"]
-      })
-    }
+  clearForm() {
+    this.setState({
+      firstName: "",
+      lastName: "",
+      password: "",
+      errorMessage: null
+    })
   }
+
+  findInvite(formData) {
+    fetch("/api/v1/invites/find.json", {
+      credentials: 'same-origin',
+      method: 'POST',
+      body: JSON.stringify(formData),
+      headers: { 'Content-Type': 'application/json' }
+    })
+    .then ( response => {
+        if ( response.ok ) {
+          return response;
+        } else {
+          let errorMessage = `${response.status} (${response.statusText})`;
+          let error = new Error(errorMessage);
+          throw(error);
+        }
+      })
+      .then ( response => response.json() )
+      .then ( response => {
+        if (response["error"]) {
+          this.setState({
+            errorMessage: response["message"],
+            password: ""
+          })
+        } else {
+          debugger
+          this.clearForm()
+        }
+      })
+      .catch ( error => console.error(`Error in fetch: ${error.message}`) );
+  }
+
 
   handleSubmit(event) {
     event.preventDefault()
@@ -46,7 +80,7 @@ class MainPage extends Component {
         }
       }
 
-      this.props.getInvitees(formData)
+      this.findInvite(formData)
     }
   }
 

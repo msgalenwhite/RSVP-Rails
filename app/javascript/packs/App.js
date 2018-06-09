@@ -1,14 +1,14 @@
 import React, { Component } from 'react'
 import {Router, Route, browserHistory} from 'react-router'
 
-import MainWrapper from '../pages/MainWrapper'
+import MainPage from '../pages/MainPage'
 
 const App = props => {
   return(
     <Router history={browserHistory}>
       <Route
         path='/'
-        component={MainWrapper}
+        component={MainPage}
       />
     </Router>
   )
