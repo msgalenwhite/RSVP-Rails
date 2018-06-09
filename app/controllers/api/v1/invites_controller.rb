@@ -20,6 +20,19 @@ class Api::V1::InvitesController < ApplicationController
     end
   end
 
+  def show
+    invite = Invite.find(params["id"].to_i)
+    if invite
+      render json: invite, status: 200
+    else
+      response = {
+        error: true,
+        message: "No invite found."
+      }
+      render json: response, status: 200
+    end
+  end
+
   private
 
   def safe_params
