@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 
 // import SignIn from './SignIn'
-import RsvpForm from './RsvpForm'
+// import RsvpForm from './RsvpForm'
 import ReviewAndStoryPage from './ReviewAndStoryPage'
 
 import invitees from '../constants/Invitees'
@@ -58,20 +58,20 @@ class MainPage extends Component {
     })
   }
 
-  handlePlusOneChange(event) {
-    let plusOneName = event.target.value
-    let plusOneAttending = this.state.familyObject["plusOne"].attending
-
-    this.setState({
-      familyObject: {
-        ...this.state.familyObject,
-        "plusOne": {
-          name: plusOneName,
-          attending: plusOneAttending
-        }
-      }
-    })
-  }
+  // handlePlusOneChange(event) {
+  //   let plusOneName = event.target.value
+  //   let plusOneAttending = this.state.familyObject["plusOne"].attending
+  //
+  //   this.setState({
+  //     familyObject: {
+  //       ...this.state.familyObject,
+  //       "plusOne": {
+  //         name: plusOneName,
+  //         attending: plusOneAttending
+  //       }
+  //     }
+  //   })
+  // }
 
   handleStoryChange(event) {
     this.setState({
@@ -191,27 +191,27 @@ class MainPage extends Component {
   //
   // }
 
-  createFamilyObject(familyArray) {
-    let familyObject = {}
-
-    familyArray.forEach((person) => {
-      if (person === "plusOne") {
-        familyObject["plusOne"] = {
-          name: "",
-          attending: null
-        }
-      } else if (person === "baby"){
-        familyObject["baby"] = true
-      } else {
-        familyObject[person] = null
-      }
-    })
-
-    this.setState({
-      familyObject: familyObject,
-      continueToRsvp: true
-    })
-  }
+  // createFamilyObject(familyArray) {
+  //   let familyObject = {}
+  //
+  //   familyArray.forEach((person) => {
+  //     if (person === "plusOne") {
+  //       familyObject["plusOne"] = {
+  //         name: "",
+  //         attending: null
+  //       }
+  //     } else if (person === "baby"){
+  //       familyObject["baby"] = true
+  //     } else {
+  //       familyObject[person] = null
+  //     }
+  //   })
+  //
+  //   this.setState({
+  //     familyObject: familyObject,
+  //     continueToRsvp: true
+  //   })
+  // }
 
   handleRSVPSubmit(event) {
     event.preventDefault();
@@ -248,26 +248,26 @@ class MainPage extends Component {
     console.log("submit, full submit")
   }
 
-  handleBoxSelect(attendee) {
-    if (attendee.name === "plusOne") {
-      this.setState({
-        familyObject: {
-          ...this.state.familyObject,
-          "plusOne": {
-            ...this.state.familyObject["plusOne"],
-            attending: attendee.isAttending
-          }
-        }
-      })
-    } else {
-      this.setState({
-        familyObject: {
-          ...this.state.familyObject,
-          [attendee.name]: attendee.isAttending
-        }
-      })
-    }
-  }
+  // handleBoxSelect(attendee) {
+  //   if (attendee.name === "plusOne") {
+  //     this.setState({
+  //       familyObject: {
+  //         ...this.state.familyObject,
+  //         "plusOne": {
+  //           ...this.state.familyObject["plusOne"],
+  //           attending: attendee.isAttending
+  //         }
+  //       }
+  //     })
+  //   } else {
+  //     this.setState({
+  //       familyObject: {
+  //         ...this.state.familyObject,
+  //         [attendee.name]: attendee.isAttending
+  //       }
+  //     })
+  //   }
+  // }
 
   sendEmail(formPayload) {
     //BEFORE THIS WILL WORK, jump through SENDGRID's hoops!
@@ -294,14 +294,14 @@ class MainPage extends Component {
 
     if (this.state.continueToRsvp) {
       renderedComponent =
-        <RsvpForm
-          familyObject={this.state.familyObject}
-          handlePlusOneChange={this.handlePlusOneChange}
-          handleSubmit={this.handleRSVPSubmit}
-          onBoxClick={this.handleBoxSelect}
-          dietaryRestrictions={this.state.dietaryRestrictions}
-          onChange={this.handleTextChange}
-        />
+        // <RsvpForm
+        //   familyObject={this.state.familyObject}
+        //   handlePlusOneChange={this.handlePlusOneChange}
+        //   handleSubmit={this.handleRSVPSubmit}
+        //   onBoxClick={this.handleBoxSelect}
+        //   dietaryRestrictions={this.state.dietaryRestrictions}
+        //   onChange={this.handleTextChange}
+        // />
     } else if (this.state.continueToStory) {
       renderedComponent =
       <ReviewAndStoryPage

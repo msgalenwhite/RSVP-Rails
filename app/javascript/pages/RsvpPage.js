@@ -5,10 +5,16 @@ class RsvpPage extends Component {
   constructor(props){
     super(props);
     this.state = {
-      invite: {},
+      inviteId: parseInt(this.props.params.id),
+      rsvps: [],
       errorMessage: null
     }
     this.fetchInvite = this.fetchInvite.bind(this)
+    this.handleTextChange = this.handleTextChange.bind(this)
+
+
+    this.handlePlusOneChange = this.handlePlusOneChange.bind(this)
+    this.handleBoxSelect = this.handleBoxSelect.bind(this)
   }
 
   componentDidMount() {
@@ -17,6 +23,11 @@ class RsvpPage extends Component {
   }
 
   fetchInvite(id) {
+
+    // FOR WORK PURPOSES:
+    id = 1
+
+
     fetch(`/api/v1/invites/${id}.json`, {
       credentials: 'same-origin',
       method: 'GET',
@@ -36,24 +47,59 @@ class RsvpPage extends Component {
         if (response["error"]) {
           this.setState({ errorMessage: response["message"] })
         } else {
-          debugger
-          this.setState({ invite: response })
+          this.setState({ rsvps: response })
         }
       })
       .catch ( error => console.error(`Error in fetch: ${error.message}`) );
   }
 
+  handleTextChange(event) {
+    this.setState({
+      [event.target.className]: event.target.value
+    })
+  }
+
+  handleBoxSelect(attendee) {
+    // does not handle for PlusOnes
+    let newRsvps = this.state.rsvps
+    newRsvps.forEach((rsvp) => {
+      if (rsvp.full_name === attendee.name) {
+        rsvp.is_attending = attendee.isAttending
+      }
+    })
+
+    this.setState({ rsvps: newRsvps })
+  }
+
+  // COPIED DIRECTLY:
+  handlePlusOneChange(event) {
+    debugger
+    let plusOneName = event.target.value
+    let plusOneAttending = this.state.familyObject["plusOne"].attending
+
+    this.setState({
+      familyObject: {
+        ...this.state.familyObject,
+        "plusOne": {
+          name: plusOneName,
+          attending: plusOneAttending
+        }
+      }
+    })
+  }
+
   render() {
+    console.log(this.state)
+
+
     return(
-      <h3>hi</h3>
-      // <RsvpForm
-      //   familyObject={this.state.familyObject}
-      //   handlePlusOneChange={this.handlePlusOneChange}
-      //   handleSubmit={this.handleRSVPSubmit}
-      //   onBoxClick={this.handleBoxSelect}
-      //   dietaryRestrictions={this.state.dietaryRestrictions}
-      //   onChange={this.handleTextChange}
-      // />
+      <RsvpForm
+        rsvps={this.state.rsvps}
+        handlePlusOneChange={this.handlePlusOneChange}
+        handleSubmit={this.handleRSVPSubmit}
+        onBoxClick={this.handleBoxSelect}
+        onChange={this.handleTextChange}
+      />
     )
   }
 }
