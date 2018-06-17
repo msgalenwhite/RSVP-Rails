@@ -1,4 +1,6 @@
 class Api::V1::InvitesController < ApplicationController
+  # skip_before_action :verify_authenticity_token
+  # before_action :authenticate_user!
   protect_from_forgery unless: -> { request.format.json? }
 
   def find
