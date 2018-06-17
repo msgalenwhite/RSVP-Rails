@@ -2,6 +2,7 @@ require 'rails_helper'
 
 describe Rsvp, :type => :model do
   let(:test_rsvp) { FactoryBot.create(:rsvp) }
+  let(:user) { FactoryBot.create(:user) }
 
   context 'validations' do
     it { should have_valid(:first_name).when("name") }
@@ -17,11 +18,13 @@ describe Rsvp, :type => :model do
 
     it { should have_valid(:baby).when(true, false) }
     it { should_not have_valid(:baby).when(nil, "") }
+
+    it { should have_valid(:user_id).when(user.id, nil) }
   end
 
   context 'associations' do
     it { belong_to(:invite) }
-    it { belong_to(:user) }
+    # it { belong_to(:user) }
   end
 
   context 'methods' do

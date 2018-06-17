@@ -21,3 +21,10 @@ end
 
 individual_invite = Invite.create!
 Rsvp.find_or_create_by!(first_name: "Anakin", last_name: "Skywalker", invite: individual_invite)
+
+plus_one_invite = Invite.create!
+Rsvp.find_or_create_by!(first_name: "Kylo", last_name: "Ren", invite: plus_one_invite, plus_one: true)
+
+# baby_invite = Invite.create!
+# family_two = ["Carrie Reisinger", "Andy Reisinger"]
+# ### = CHANGE BABY NOTATION TO BE ON INVITATION, NOT EACH RSVP.  THAT WAY IT IS EASILY ACCESSIBLE WITHOUT LOOPING.

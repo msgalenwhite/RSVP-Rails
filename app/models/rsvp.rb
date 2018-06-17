@@ -6,7 +6,7 @@ class Rsvp < ApplicationRecord
   validates :baby, inclusion: {in: [true, false]}
 
   belongs_to :invite
-  belongs_to :user
+  belongs_to :user, optional: true
 
   def full_name
     "#{first_name} #{last_name}"

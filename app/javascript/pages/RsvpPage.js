@@ -7,6 +7,7 @@ class RsvpPage extends Component {
     this.state = {
       inviteId: parseInt(this.props.params.id),
       rsvps: [],
+      plusOneName: '',
       errorMessage: null
     }
     this.fetchInvite = this.fetchInvite.bind(this)
@@ -25,7 +26,7 @@ class RsvpPage extends Component {
   fetchInvite(id) {
 
     // FOR WORK PURPOSES:
-    id = 1
+    id = 2
 
 
     fetch(`/api/v1/invites/${id}.json`, {
@@ -99,6 +100,7 @@ class RsvpPage extends Component {
         handleSubmit={this.handleRSVPSubmit}
         onBoxClick={this.handleBoxSelect}
         onChange={this.handleTextChange}
+        plusOneName={this.state.plusOneName}
       />
     )
   }

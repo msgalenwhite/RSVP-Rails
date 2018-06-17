@@ -8,7 +8,14 @@ const RsvpForm = props => {
 
 
   const entries = props.rsvps.map((familyMember) => {
-    let component;
+    let component =
+      <RsvpEntry
+        key={`RSVP-${familyMember.id}`}
+        name={familyMember.full_name}
+        yesClick={attendingBoxClick}
+        noClick={notAttendingBoxClick}
+        attending={familyMember.is_attending}
+      />
 
     let attendingBoxClick = () => {
       props.onBoxClick({
@@ -32,6 +39,28 @@ const RsvpForm = props => {
           noClick={notAttendingBoxClick}
           attending={familyMember.is_attending}
         />
+    } else if (!familyMember.baby) {
+      let name = props.plusOneName
+      if (name === "") {
+        name = 'Plus One'
+      }
+
+      component.appendChild(
+        <div key="RSVPlusOne">
+          <RsvpEntry
+            name={name}
+            yesClick={attendingBoxClick}
+            noClick={notAttendingBoxClick}
+            attending={attending}
+          />
+          <TextInputField
+            name="plusOne"
+            label="Name: "
+            value={name}
+            onChange={props.handlePlusOneChange}
+          />
+        </div>
+      )
     }
 
     return component
@@ -79,17 +108,6 @@ const RsvpForm = props => {
   //       name: familyMember,
   //       isAttending: false
   //     })
-  //   }
-  //
-  //   if (!familyMember.plus_one && !familyMember.baby) {
-  //     <RsvpEntry
-  //       key={`RSVP-${familyMember.id}`}
-  //       name={familyMember}
-  //       yesClick={attendingBoxClick}
-  //       noClick={notAttendingBoxClick}
-  //       attending={attending}
-  //
-  //     />
   //   }
   //
   //
