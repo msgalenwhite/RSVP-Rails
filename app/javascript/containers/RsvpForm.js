@@ -165,8 +165,7 @@ const RsvpForm = props => {
       <br/>
       {invitationWording.reception}
       <br/>
-
-      <form onSubmit={props.handleSubmit}>
+      <div>
         {entries}
 
         <br/>
@@ -181,12 +180,13 @@ const RsvpForm = props => {
           >
           </textarea>
         </div>
-        <input
-          type='submit'
+        <button
           className='button'
-          value='Next'
-        />
-      </form>
+          onClick={props.showReview}
+        >
+          Next
+        </button>
+      </div>
     </div>
   )
 }

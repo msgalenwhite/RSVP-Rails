@@ -221,12 +221,12 @@ class MainPage extends Component {
     })
   }
 
-  changeRSVP() {
-    this.setState({
-      continueToStory: false,
-      continueToRsvp: true
-    })
-  }
+  // changeRSVP() {
+  //   this.setState({
+  //     continueToStory: false,
+  //     continueToRsvp: true
+  //   })
+  // }
 
   handleStorySubmit() {
     let newStory = this.state.stories.current
@@ -305,9 +305,9 @@ class MainPage extends Component {
     } else if (this.state.continueToStory) {
       renderedComponent =
       <ReviewAndStoryPage
-        rsvpStatus={this.state.familyObject}
-        changeRSVP={this.changeRSVP}
-        dietaryRestrictions={this.state.dietaryRestrictions}
+        // rsvpStatus={this.state.familyObject}
+        // changeRSVP={this.changeRSVP}
+        // dietaryRestrictions={this.state.dietaryRestrictions}
         stories={this.state.stories}
         onChange={this.handleStoryChange}
         handleStorySubmit={this.handleStorySubmit}

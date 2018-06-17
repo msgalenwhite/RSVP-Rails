@@ -1,6 +1,6 @@
 class Api::V1::InvitesController < ApplicationController
   # skip_before_action :verify_authenticity_token
-  # before_action :authenticate_user!
+  before_action :authenticate_user!
   protect_from_forgery unless: -> { request.format.json? }
 
   def find
@@ -35,9 +35,31 @@ class Api::V1::InvitesController < ApplicationController
     end
   end
 
+  def update
+    new_params = safe_rsvp_params
+    new_params['rsvps'].each do |person_info|
+      update_rsvp(person_info)
+    end
+  end
+
   private
 
   def safe_params
     params.require(:invite).permit(:first_name, :last_name, :password)
+  end
+
+  def safe_rsvp_params
+    params.permit(:id, :rsvps => [:id, :full_name, :is_attending, :plus_one, :baby, :dietary_restrictions])
+  end
+
+  def update_rsvp(info)
+    rsvp = Rsvp.find(info['id'].to_i)
+    binding.pry
+    rsvp.update!(
+      is_attending = info['is_attending'],
+      dietary_restrictions = info['dietary_restrictions'],
+      plus_one = info['plus_one'],
+      baby = info['baby']
+    )
   end
 end

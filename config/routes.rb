@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       post '/invites/find.json' => 'invites#find'
-      resources :invites, only: [:show]
+      resources :invites, only: [:show, :update]
     end
   end
   resources :invites, only: [:show]
