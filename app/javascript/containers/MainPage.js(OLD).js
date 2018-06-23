@@ -32,7 +32,7 @@ class MainPage extends Component {
       }
     }
   this.handleTextChange = this.handleTextChange.bind(this);
-  this.handlePlusOneChange = this.handlePlusOneChange.bind(this);
+  // this.handlePlusOneChange = this.handlePlusOneChange.bind(this);
   this.handleStoryChange = this.handleStoryChange.bind(this);
   this.handleEditStory = this.handleEditStory.bind(this)
   this.storyInProgress = this.storyInProgress.bind(this)

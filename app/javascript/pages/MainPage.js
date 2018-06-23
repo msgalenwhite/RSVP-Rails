@@ -2,12 +2,6 @@ import React, {Component} from 'react'
 import TextInputField from '../components/TextInputField'
 import PopUp from '../components/PopUp'
 
-//this page will have a dropdown with names, and a password field.  Once all are complete, use fetch post to send to backend
-
-//if NOT SUCCESSFUL - set flash message, return error, do NOT clear form
-
-//if SUCCESSFUL - go to RSVP page with checkboxes
-
 class MainPage extends Component {
   constructor(props){
     super(props);
