@@ -1,15 +1,19 @@
 import React, { Component } from 'react'
-import {Router, Route, Link, IndexRoute, browserHistory} from 'react-router'
+import {Router, Route, browserHistory} from 'react-router'
 
-import MainPage from '../containers/MainPage'
+import MainPage from '../pages/MainPage'
+import RsvpPage from '../pages/RsvpPage'
 
 const App = props => {
   return(
-
     <Router history={browserHistory}>
       <Route
         path='/'
         component={MainPage}
+      />
+      <Route
+        path='/invites/:id'
+        component={RsvpPage}
       />
     </Router>
   )
