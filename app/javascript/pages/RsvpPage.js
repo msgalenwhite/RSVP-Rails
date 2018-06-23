@@ -8,23 +8,29 @@ class RsvpPage extends Component {
     this.state = {
       inviteId: parseInt(this.props.params.id),
       rsvps: [],
+      plusOneBoolean: null,
+      babyBoolean: null,
       plusOneName: '',
       dietaryRestrictions: '',
       showReview: false,
       errorMessage: null
     }
     this.createPayload = this.createPayload.bind(this)
+    this.createPlusOne = this.createPlusOne.bind(this)
     this.fetchInvite = this.fetchInvite.bind(this)
     this.handleTextChange = this.handleTextChange.bind(this)
     this.showReview = this.showReview.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
-
-    // this.handlePlusOneChange = this.handlePlusOneChange.bind(this)
     this.handleBoxSelect = this.handleBoxSelect.bind(this)
   }
 
   componentDidMount() {
-    const inviteId = parseInt(this.props.params.id)
+    let inviteId = parseInt(this.props.params.id)
+
+    // JUST FOR TESTING
+    inviteId = 3
+
+
     this.fetchInvite(inviteId)
   }
 
@@ -36,10 +42,15 @@ class RsvpPage extends Component {
     return payload
   }
 
-  fetchInvite(id) {
+  createPlusOne() {
+    const plusOne = {
+      full_name: 'plusOne',
+      is_attending: false
+    }
+    return plusOne
+  }
 
-    // FOR WORK PURPOSES:
-    id = 2
+  fetchInvite(id) {
 
     fetch(`/api/v1/invites/${id}.json`, {
       credentials: 'same-origin',
@@ -60,7 +71,15 @@ class RsvpPage extends Component {
         if (response["error"]) {
           this.setState({ errorMessage: response["message"] })
         } else {
-          this.setState({ rsvps: response })
+          let rsvp_array = response.rsvps
+          if (response.plus_one) {
+            rsvp_array = rsvp_array.concat(this.createPlusOne())
+          }
+          this.setState({
+            rsvps: rsvp_array,
+            plusOneBoolean: response.plus_one,
+            babyBoolean: response.baby
+          })
         }
       })
       .catch ( error => console.error(`Error in fetch: ${error.message}`) );
@@ -74,6 +93,7 @@ class RsvpPage extends Component {
 
   handleBoxSelect(attendee) {
     // does not handle for PlusOnes
+    debugger
     let newRsvps = this.state.rsvps
     newRsvps.forEach((rsvp) => {
       if (rsvp.full_name === attendee.name) {
@@ -116,23 +136,6 @@ class RsvpPage extends Component {
       .catch ( error => console.error(`Error in fetch: ${error.message}`) );
   }
 
-  // COPIED DIRECTLY:
-  // handlePlusOneChange(event) {
-  //   debugger
-  //   let plusOneName = event.target.value
-  //   let plusOneAttending = this.state.familyObject["plusOne"].attending
-  //
-  //   this.setState({
-  //     familyObject: {
-  //       ...this.state.familyObject,
-  //       "plusOne": {
-  //         name: plusOneName,
-  //         attending: plusOneAttending
-  //       }
-  //     }
-  //   })
-  // }
-
   showReview() {
     this.setState({ showReview: !this.state.showReview })
   }
@@ -153,7 +156,8 @@ class RsvpPage extends Component {
       renderedComponent =
         <RsvpForm
           rsvps={this.state.rsvps}
-          handlePlusOneChange={this.handlePlusOneChange}
+          plusOneBoolean={this.state.plusOneBoolean}
+          babyBoolean={this.state.babyBoolean}
           handleSubmit={this.showReview}
           onBoxClick={this.handleBoxSelect}
           onChange={this.handleTextChange}

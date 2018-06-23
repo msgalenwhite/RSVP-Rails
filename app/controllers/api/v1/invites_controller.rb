@@ -26,7 +26,7 @@ class Api::V1::InvitesController < ApplicationController
   def show
     invite = Invite.find(params["id"].to_i)
     if invite
-      render json: invite.rsvps, each_serializer: InviteRsvpsSerializer, status: 200
+      render json: invite, status: 200
     else
       response = {
         error: true,
