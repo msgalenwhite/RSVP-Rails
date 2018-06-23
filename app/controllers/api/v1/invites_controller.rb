@@ -1,13 +1,14 @@
 class Api::V1::InvitesController < ApplicationController
-  # skip_before_action :verify_authenticity_token
   before_action :authenticate_user!
   protect_from_forgery unless: -> { request.format.json? }
 
   def find
     params = safe_params
     if params[:password] == ENV["WEDDING_PASSWORD"]
-      target_rsvp = Rsvp.find_by_first_name_and_last_name(params[:first_name], params[:last_name])
+      test_params = [params[:first_name], params[:last_name]].map { |n| n.downcase.capitalize! }
+      target_rsvp = Rsvp.find_by_first_name_and_last_name(test_params[0], test_params[1])
       if target_rsvp
+        target_rsvp.update!(user: current_user)
         render json: target_rsvp, status: 200
       else
         params[:error] = true
@@ -54,7 +55,6 @@ class Api::V1::InvitesController < ApplicationController
 
   def update_rsvp(info)
     rsvp = Rsvp.find(info['id'].to_i)
-    binding.pry
     rsvp.update!(
       is_attending = info['is_attending'],
       dietary_restrictions = info['dietary_restrictions'],
