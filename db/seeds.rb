@@ -22,8 +22,8 @@ end
 individual_invite = Invite.create!
 Rsvp.find_or_create_by!(first_name: "Anakin", last_name: "Skywalker", invite: individual_invite)
 
-plus_one_invite = Invite.create!
-Rsvp.find_or_create_by!(first_name: "Kylo", last_name: "Ren", invite: plus_one_invite, plus_one: true)
+plus_one_invite = Invite.create!(plus_one: true)
+Rsvp.find_or_create_by!(first_name: "Kylo", last_name: "Ren", invite: plus_one_invite)
 
 # baby_invite = Invite.create!
 # family_two = ["Carrie Reisinger", "Andy Reisinger"]

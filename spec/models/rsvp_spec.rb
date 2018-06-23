@@ -13,9 +13,6 @@ describe Rsvp, :type => :model do
     it { should have_valid(:is_attending).when(true, false) }
     it { should_not have_valid(:is_attending).when(nil, "") }
 
-    it { should have_valid(:plus_one).when(true, false) }
-    it { should_not have_valid(:plus_one).when(nil, "") }
-
     it { should have_valid(:baby).when(true, false) }
     it { should_not have_valid(:baby).when(nil, "") }
 
