@@ -6,7 +6,9 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       post '/invites/find.json' => 'invites#find'
-      resources :invites, only: [:show, :update]
+      resources :invites, only: [:show] do
+        patch 'rsvps' => 'rsvps#update_all'
+      end
     end
   end
   resources :invites, only: [:show]

@@ -29,7 +29,7 @@ const RsvpForm = props => {
       </p>
   }
 
-  let entries = props.rsvps.map((familyMember) => {
+  const entries = props.rsvps.map((familyMember) => {
     let component;
 
     const attendingBoxClick = () => {
@@ -60,10 +60,10 @@ const RsvpForm = props => {
             attending={familyMember.is_attending}
           />
           <TextInputField
-            name="plusOne"
+            name="plusOneName"
             label="Name: "
             value={props.plusOneName}
-            onChange={props.handlePlusOneChange}
+            onChange={props.handleChange}
           />
         </div>
     } else {
@@ -100,7 +100,7 @@ const RsvpForm = props => {
           </p>
           <textarea
             value={props.dietaryRestrictions}
-            onChange={props.onChange}
+            onChange={props.handleChange}
             className="dietaryRestrictions"
           >
           </textarea>

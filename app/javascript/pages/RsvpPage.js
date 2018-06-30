@@ -26,18 +26,14 @@ class RsvpPage extends Component {
 
   componentDidMount() {
     let inviteId = parseInt(this.props.params.id)
-
-    // JUST FOR TESTING
-    inviteId = 3
-
-
     this.fetchInvite(inviteId)
   }
 
   createPayload() {
     const payload = {
       rsvps: this.state.rsvps,
-      dietary_restrictions: this.state.dietaryRestrictions
+      dietary_restrictions: this.state.dietaryRestrictions,
+      plusOneName: this.state.plusOneName
     }
     return payload
   }
@@ -51,7 +47,6 @@ class RsvpPage extends Component {
   }
 
   fetchInvite(id) {
-
     fetch(`/api/v1/invites/${id}.json`, {
       credentials: 'same-origin',
       method: 'GET',
@@ -72,6 +67,7 @@ class RsvpPage extends Component {
           this.setState({ errorMessage: response["message"] })
         } else {
           let rsvp_array = response.rsvps
+
           if (response.plus_one) {
             rsvp_array = rsvp_array.concat(this.createPlusOne())
           }
@@ -92,8 +88,6 @@ class RsvpPage extends Component {
   }
 
   handleBoxSelect(attendee) {
-    // does not handle for PlusOnes
-    debugger
     let newRsvps = this.state.rsvps
     newRsvps.forEach((rsvp) => {
       if (rsvp.full_name === attendee.name) {
@@ -107,7 +101,7 @@ class RsvpPage extends Component {
   handleSubmit() {
     const formPayload = this.createPayload()
 
-    fetch(`/api/v1/invites/${this.state.inviteId}.json`, {
+    fetch(`/api/v1/invites/${this.state.inviteId}/rsvps.json`, {
       credentials: 'same-origin',
       method: 'PATCH',
       body: JSON.stringify(formPayload),
@@ -141,8 +135,6 @@ class RsvpPage extends Component {
   }
 
   render() {
-    console.log(this.state)
-
     let renderedComponent;
     if (this.state.showReview) {
       renderedComponent =
@@ -160,7 +152,7 @@ class RsvpPage extends Component {
           babyBoolean={this.state.babyBoolean}
           handleSubmit={this.showReview}
           onBoxClick={this.handleBoxSelect}
-          onChange={this.handleTextChange}
+          handleChange={this.handleTextChange}
           plusOneName={this.state.plusOneName}
           showReview={this.showReview}
           dietaryRestrictions={this.state.dietaryRestrictions}
