@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 2018_06_30_025813) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "invite_id", null: false
+    t.boolean "baby", default: false, null: false
     t.integer "user_id"
     t.string "role", default: "guest", null: false
   end

@@ -25,13 +25,3 @@ Rsvp.find_or_create_by!(first_name: "Anakin", last_name: "Skywalker", invite: in
 plus_one_invite = Invite.create!(plus_one: true)
 Rsvp.find_or_create_by!(first_name: "Kylo", last_name: "Ren", invite: plus_one_invite)
 
-baby_invite = Invite.create!(baby: true)
-family_two = ["Carrie Reisinger", "Andy Reisinger"]
-family_two.each do |character|
-  name = character.split()
-  Rsvp.find_or_create_by!(
-    first_name: name[0],
-    last_name: name[1],
-    invite: baby_invite
-  )
-end
