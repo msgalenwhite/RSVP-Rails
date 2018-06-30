@@ -23,5 +23,4 @@ individual_invite = Invite.create!
 Rsvp.find_or_create_by!(first_name: "Anakin", last_name: "Skywalker", invite: individual_invite)
 
 plus_one_invite = Invite.create!(plus_one: true)
-Rsvp.find_or_create_by!(first_name: "Kylo", last_name: "Ren", invite: plus_one_invite)
-
+Rsvp.find_or_create_by!(first_name: "Kylo", last_name: "Ren", invite: plus_one_invite, role: 'has_plus_one')

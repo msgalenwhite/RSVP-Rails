@@ -121,11 +121,12 @@ class RsvpPage extends Component {
       })
       .then ( response => response.json() )
       .then ( response => {
-        if (response["error"]) {
-          this.setState({ errorMessage: response["message"] })
-        } else {
-          this.setState({ rsvps: response })
-        }
+        window.location.href = '/stories/new'
+        // if (response["error"]) {
+        //   this.setState({ errorMessage: response["message"] })
+        // } else {
+        //   this.setState({ rsvps: response })
+        // }
       })
       .catch ( error => console.error(`Error in fetch: ${error.message}`) );
   }
@@ -140,6 +141,7 @@ class RsvpPage extends Component {
       renderedComponent =
         <RsvpSummary
           rsvps={this.state.rsvps}
+          plusOneName={this.state.plusOneName}
           changeRSVP={this.showReview}
           dietaryRestrictions={this.state.dietaryRestrictions}
           handleSubmit={this.handleSubmit}

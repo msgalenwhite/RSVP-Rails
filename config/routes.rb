@@ -12,4 +12,5 @@ Rails.application.routes.draw do
     end
   end
   resources :invites, only: [:show]
+  resources :stories, only: [:new]
 end

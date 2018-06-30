@@ -32,37 +32,17 @@ const RsvpSummary = props => {
   let willNotAttend = []
 
   props.rsvps.forEach((familyMember) => {
+    let name = familyMember.full_name
+    if (name === 'plusOne' && props.plusOneName !== ''){
+      name = props.plusOneName
+    }
+
     if (familyMember.is_attending){
-      willAttend.push(familyMember.full_name)
+      willAttend.push(name)
     } else {
-      willNotAttend.push(familyMember.full_name)
+      willNotAttend.push(name)
     }
   })
-
-  // Object.entries(props.rsvpStatus).forEach((miniArray) => {
-  //   let inviteeName = miniArray[0]
-  //   let inviteeData = miniArray[1]
-  //
-  //   if (inviteeName !== "plusOne" && inviteeName !== "baby") {
-  //     if (inviteeData) {
-  //       willAttend.push(inviteeName)
-  //     } else {
-  //       willNotAttend.push(inviteeName)
-  //     }
-  //   } else if (inviteeName === "plusOne") {
-  //     if (inviteeData.name === "") {
-  //       inviteeName = "Your Plus One"
-  //     } else {
-  //       inviteeName = inviteeData.name
-  //     }
-  //
-  //     if (inviteeData.attending) {
-  //       willAttend.push(inviteeName)
-  //     } else {
-  //       let willNotAttend = []
-  //     }
-  //   }
-  // })
 
   const nameLists =
     <div className='rsvp-summary'>
