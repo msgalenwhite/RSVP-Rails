@@ -55,7 +55,7 @@ baby_invites.each do |family_array|
 end
 
 invitees = [
-  ["Family-Test Account-1", "Family-Test Account-2"]
+  ["Family-Test Account-1", "Family-Test Account-2"],
 
   ### Galen's Family
   ["Bert White", "Lori Schwartz"],
@@ -111,7 +111,7 @@ invitees = [
   ["Chrissy Volsci"]
 ]
 
-invites.each do |family_array|
+invitees.each do |family_array|
   invite = Invite.create!()
   family_array.each do |person|
     name = person.split()

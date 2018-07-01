@@ -151,7 +151,6 @@ class MainRsvpPage extends Component {
               value={this.state.password}
               onChange={this.handleTextChange}
               label="Password: "
-              type='password'
             />
             <button
               type='submit'
