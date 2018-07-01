@@ -21,12 +21,20 @@ class Api::V1::RsvpsController < ApplicationController
   def update_invite(invite, new_params)
     invite.update_attributes!(dietary_restrictions: new_params['dietary_restrictions'])
 
-    if invite.plus_one && new_params['rsvps'].length == 2
+    if invite.plus_one && new_params['rsvps'].length == 2 && new_params['rsvps'].last['is_attending']
       invite.update_attributes!(plus_one: false)
 
+      if new_params['plusOneName'] == ""
+        first_name: 'Plus'
+        last_name: 'One'
+      else
+        first_name: new_params['plusOneName']
+        last_name: "(Plus One)"
+      end
+
       Rsvp.create!(
-        first_name: new_params['plusOneName'],
-        last_name: "(Plus One)",
+        first_name: first_name,
+        last_name: last_name,
         is_attending: new_params['rsvps'].last['is_attending'],
         role: 'is_plus_one',
         invite: invite

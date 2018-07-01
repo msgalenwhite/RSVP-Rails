@@ -28,7 +28,7 @@ plus_one_invites.each do |person|
 
   Rsvp.create!(
     first_name: name[0],
-    last_name: name[1],
+    last_name: name[1..name.length-1],
     invite: invite,
     role: "has_plus_one"
   )
@@ -47,7 +47,7 @@ baby_invites.each do |family_array|
 
     Rsvp.create!(
       first_name: name[0],
-      last_name: name[1],
+      last_name: name[1..name.length-1],
       invite: invite,
       role: "guest"
     )
@@ -118,7 +118,7 @@ invitees.each do |family_array|
 
     Rsvp.create!(
       first_name: name[0],
-      last_name: name[1],
+      last_name: name[1..name.length-1],
       invite: invite,
       role: "guest"
     )
