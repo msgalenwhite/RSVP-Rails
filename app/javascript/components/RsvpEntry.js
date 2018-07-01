@@ -26,17 +26,18 @@ const RsvpEntry = props => {
     ></i>
 
   return(
-    <div>
-      <h2>{props.name}</h2>
-
-      <span>
-        {attending}
-        <label>Will Attend</label>
-      </span>
-      <span>
-        {notAttending}
-        <label>Will Not Attend</label>
-      </span>
+    <div className='entry-div'>
+      <h2 className='title center'>{props.name}</h2>
+      <div className='check-box-div'>
+        <span className='check-box-div'>
+          {attending}
+          <label>Will Attend</label>
+        </span>
+        <span className='check-box-div'>
+          {notAttending}
+          <label>Will Not Attend</label>
+        </span>
+      </div>
     </div>
   )
 }

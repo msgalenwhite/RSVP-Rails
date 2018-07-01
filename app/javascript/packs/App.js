@@ -45,7 +45,7 @@ const App = props => {
         component={Registry}
       />
       <Route
-        path='/coolsite'
+        path='/wedding/coolsite'
         component={About}
       />
       <Route

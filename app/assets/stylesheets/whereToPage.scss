@@ -3,12 +3,19 @@
 .whereToPage {
   ul {
     list-style-type: none;
-    line-height: 1.4em;
+    line-height: 2em;
   }
   li:before {
     font-family: 'FontAwesome';
     content: '\f06c';
     margin:0 6px 0 0;
     color: $green;
+  }
+  a, .coming-soon-link {
+    font-size: 1.3em;
+    padding-left: .2em;
+  }
+  a:hover {
+    font-size: 1.4em
   }
 }

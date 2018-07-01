@@ -37,3 +37,24 @@
 .check:hover {
   color: $sangria;
 }
+.check-box-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.rsvp-div {
+  width: 60%;
+  margin: auto;
+  background: white;
+  border-radius: 10px;
+  padding: 1.5em;
+}
+.entry-div {
+  margin: .5em;
+}
+.dietary-div {
+  padding: 1em;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}

@@ -32,7 +32,7 @@ const HotelInfo = props => {
       <div className="localPlace" key={place.name}>
         <a href={place.website}>
           <div className='placeName'>
-            {place.name}
+            <span className='title'>{place.name}</span>
           </div>
         </a>
         <p className='placeNote'>{place.note}</p>

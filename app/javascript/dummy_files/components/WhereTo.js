@@ -31,7 +31,7 @@ const WhereTo = props => {
     //   text: 'October Weather'
     // },
     {
-      path: '/coolsite',
+      path: '/wedding/coolsite',
       text: 'What a cool site!'
     }
   ]
@@ -68,7 +68,7 @@ const WhereTo = props => {
 
   let soonList = comingSoon.map((item) => {
     return (
-      <li key={item}>{item}</li>
+      <li key={item} className='coming-soon-link'>{item}</li>
     )
   })
 

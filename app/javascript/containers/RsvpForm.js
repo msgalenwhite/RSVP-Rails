@@ -91,10 +91,10 @@ const RsvpForm = props => {
       <br/>
       {babyParagraph}
       {plusOneParagraph}
-      <div>
+      <div className='rsvp-div'>
         {entries}
         <br/>
-        <div className="dietarydiv">
+        <div className="dietary-div">
           <p>
             {dietaryText}
           </p>
@@ -105,6 +105,8 @@ const RsvpForm = props => {
           >
           </textarea>
         </div>
+      </div>
+      <div className="dietary-div">
         <button
           className='button'
           onClick={props.showReview}

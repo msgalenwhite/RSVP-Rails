@@ -31,8 +31,13 @@ body {
   font-family: 'Karma', serif;
 }
 
+p {
+  font-size: 1em;
+  font-family: 'Karma', serif;
+}
+
 .page {
-  padding: 30px;
+  padding: 2em;
   margin: 0 20px 20px 20px;
   background-color: $light-nude;
   min-height: 100vh;

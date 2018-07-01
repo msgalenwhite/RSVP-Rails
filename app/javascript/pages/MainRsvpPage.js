@@ -125,7 +125,7 @@ class MainRsvpPage extends Component {
         <div className='greeting'>
           Galen and Chris are Getting Married!
         </div>
-        <h3 className='center'>
+        <h3 className='center title'>
           Please enter your first and last name,<br/>
           and the password from your invitation.
         </h3>

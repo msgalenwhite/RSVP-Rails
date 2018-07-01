@@ -44,7 +44,7 @@ input:focus {
   outline: none;
 }
 
-input[type=text], input[type=email], input[type=password], input[type=textarea] {
+input[type=text], input[type=email], input[type=password], textarea {
   background-color: $lighter-nude;
   border: 2px solid $dark-sangria;
   font-size: 1em;
@@ -150,6 +150,12 @@ a:hover {
 .form-div {
   display: flex;
   justify-content: center;
+
+  label {
+    font-size: 1em;
+    font-weight: normal;
+    font-family: 'Merienda', cursive;
+  }
 }
 
 form {
