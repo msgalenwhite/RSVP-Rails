@@ -64,7 +64,7 @@ const RsvpSummary = props => {
   return(
     <div>
       {introPara}
-      <h3 className='center'>Here is a summary of your RSVP so far:</h3>
+      <h3 className='center title'>Here is a summary of your RSVP so far:</h3>
       {nameLists}
       {dietaryRestrictions}
       <br/>

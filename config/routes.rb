@@ -11,6 +11,6 @@ Rails.application.routes.draw do
       end
     end
   end
+  get '/invites/:id/updated' => 'invites#updated'
   resources :invites, only: [:show]
-  resources :stories, only: [:new]
 end

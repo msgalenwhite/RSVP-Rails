@@ -112,21 +112,12 @@ class RsvpPage extends Component {
     })
     .then ( response => {
         if ( response.ok ) {
-          return response;
+          window.location.href = `invites/{this.state.inviteId}/updated`
         } else {
           let errorMessage = `${response.status} (${response.statusText})`;
           let error = new Error(errorMessage);
           throw(error);
         }
-      })
-      .then ( response => response.json() )
-      .then ( response => {
-        window.location.href = '/stories/new'
-        // if (response["error"]) {
-        //   this.setState({ errorMessage: response["message"] })
-        // } else {
-        //   this.setState({ rsvps: response })
-        // }
       })
       .catch ( error => console.error(`Error in fetch: ${error.message}`) );
   }
