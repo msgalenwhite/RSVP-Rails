@@ -3,7 +3,7 @@ import ReturnButton from './ReturnButton'
 
 const Registry = props => {
   return(
-    <div className='page'>
+    <div>
       <div className="heading registryHeader">Galen and Chris are registered at two locations:</div>
       <div className='registryLinks'>
         <a href="https://www.bedbathandbeyond.com:443/store/giftregistry/view_registry_guest.jsp?registryId=545839850&eventType=Wedding&pwsurl=">

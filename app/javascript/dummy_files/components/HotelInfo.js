@@ -41,7 +41,7 @@ const HotelInfo = props => {
   })
 
   return(
-    <div className='page hotelPage'>
+    <div className='hotelPage'>
       <div className='heading'>Location Information</div>
       <br/>
       <div>

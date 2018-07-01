@@ -9,7 +9,6 @@ class Weather extends Component {
   }
 
   componentDidMount() {
-
     //these are the latitude/longitude for the castle manor inn
     let latitude = 42.614510
     let longitude = -70.687690
@@ -37,10 +36,8 @@ class Weather extends Component {
 
   render() {
     return(
-      <div className='page'>
+      <div>
         <h3 className='heading'>What will the weather be like?</h3>
-
-
       </div>
     )
   }

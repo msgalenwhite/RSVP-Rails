@@ -5,7 +5,7 @@ import ReturnButton from './ReturnButton'
 const Transportation = props => {
 
   return(
-    <div className='page transport'>
+    <div className='transport'>
       <h1 className='heading'>Getting TO and FROM the Wedding</h1>
       <h3 className='title'>Flying to Boston, MA</h3>
       <p>The best airport to fly into/out of would be <a href='http://www.massport.com/logan-airport/'>Boston Logan International</a>. My favorite airlines are JetBlue and Virgin America, although you are welcome to use whatever airline you would like.</p>

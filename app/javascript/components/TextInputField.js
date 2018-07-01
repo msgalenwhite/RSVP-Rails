@@ -6,7 +6,6 @@ const TextInputField = props => {
     type = props.type
   }
 
-
   return(
     <div className='textInput'>
       <h6 className="error">{props.errorMessage}</h6>

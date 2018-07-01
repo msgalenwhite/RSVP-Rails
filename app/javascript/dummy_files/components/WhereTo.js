@@ -73,7 +73,7 @@ const WhereTo = props => {
   })
 
   return(
-    <div className='page whereToPage'>
+    <div className='whereToPage'>
       <div className='title center date'>October 13, 2018</div>
       <h3 className='heading'>
         Galen and Chris are Getting Married!

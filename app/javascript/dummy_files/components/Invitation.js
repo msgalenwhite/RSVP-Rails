@@ -24,7 +24,7 @@ const Invitation = props => {
     </div>
 
   return(
-    <div className='page'>
+    <div>
       {invitation}
       <br/>
       <br/>

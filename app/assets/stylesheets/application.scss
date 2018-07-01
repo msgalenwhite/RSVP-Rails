@@ -16,9 +16,29 @@
  *= require_self
 
  */
+@import 'colors';
 
 .flash {
   color: white;
   text-align: center;
   padding: 5px;
+}
+
+body {
+  background: image-url('leaves.jpg');
+  background-size: 150px;
+  font-size: 1.3em;
+  font-family: 'Karma', serif;
+}
+
+.page {
+  padding: 30px;
+  margin: 0 20px 20px 20px;
+  background-color: $light-nude;
+  min-height: 100vh;
+}
+
+#top-nav-bar {
+  background: image-url('leaves.jpg');
+  background-size: 150px;
 }

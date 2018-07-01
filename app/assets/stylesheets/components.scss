@@ -1,18 +1,5 @@
 @import 'colors';
 
-body {
-  background-color: $dark-sangria;
-  font-size: 1.3em;
-  font-family: 'Karma', serif;
-}
-
-.page {
-  padding: 30px;
-  margin: 20px;
-  background-color: $light-nude;
-  min-height: 100vh;
-}
-
 // CHANGE HIGHLIGHT COLOR FOR TEXT
 ::selection {
   background: lighten($light-sangria, 30%); /* WebKit/Blink Browsers */
