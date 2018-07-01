@@ -164,4 +164,13 @@ form {
   .actions {
     text-align: center;
   }
+
+  .name-div {
+    display: flex;
+    justify-content: center;
+
+    .name-span {
+      margin: 1em;
+    }
+  }
 }

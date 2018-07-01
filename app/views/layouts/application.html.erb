@@ -11,18 +11,6 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <nav class="top-bar" id='top-nav-bar'>
-    <section class="top-bar-section">
-      <ul class="right">
-        <%- if current_user -%>
-          <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, id: 'nav-button-1' %>
-        <%- else -%>
-          <%= link_to 'Sign Up', new_user_registration_path, id: 'nav-button-1' %>
-          <%= link_to 'Sign In', new_user_session_path, id: 'nav-button-2'%>
-        <%- end -%>
-      </ul>
-    </section>
-  </nav>
 
   <%- flash.each do |key, value| -%>
     <div class="flash flash-<%= key %>">
