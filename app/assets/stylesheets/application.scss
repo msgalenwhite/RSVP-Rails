@@ -38,7 +38,16 @@ body {
   min-height: 100vh;
 }
 
-#top-nav-bar {
+#top-nav-bar, #nav-button-1, #nav-button-2 {
   background: image-url('leaves.jpg');
   background-size: 150px;
+  height: 1.5em;
+  line-height: 1.5em;
+  font-family: 'Merienda', cursive;
+}
+
+#nav-button-1, #nav-button-2 {
+  font-size: 20px;
+  margin: auto 1em;
+  color: white;
 }

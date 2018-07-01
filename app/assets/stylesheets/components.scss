@@ -54,18 +54,18 @@ input[type=text], input[type=email], input[type=password], input[type=textarea] 
 
 // BUTTONS
 .button, input[type='submit'] {
-  background-color: $light-sangria;
+  background-color: $sangria;
   border-radius: 5px;
   margin: 10px;
-  padding: 7px 10px 3px 10px;
+  padding: 7px 10px 7px 10px;
   border: none;
   font-size: 18px;
-  color: $light-nude;
+  color: white;
   font-family: 'Karma', serif;
 }
 
 .button:hover, input[type='submit']:hover {
-  background-color: $sangria;
+  background-color: $dark-sangria;
 }
 
 // RSVP SUMMARY
