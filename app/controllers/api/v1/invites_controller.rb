@@ -6,9 +6,14 @@ class Api::V1::InvitesController < ApplicationController
     params = safe_params
     if params[:password] == ENV["WEDDING_PASSWORD"]
       test_params = [params[:first_name], params[:last_name]].map { |n| n.downcase.capitalize! }
-      target_rsvp = Rsvp.find_by_first_name_and_last_name(test_params[0], test_params[1])
+
+      target_rsvp = Rsvp.find(first_name: test_params[0],
+                              last_name: test_params[1])
       if target_rsvp
-        target_rsvp.update!(user: current_user)
+        target_rsvp.update_attributes!(first_name: test_params[0],
+                                             last_name: test_params[1],
+                                             email: params["email"])
+
         render json: target_rsvp, status: 200
       else
         params[:error] = true
@@ -39,6 +44,6 @@ class Api::V1::InvitesController < ApplicationController
   private
 
   def safe_params
-    params.require(:invite).permit(:first_name, :last_name, :password)
+    params.require(:invite).permit(:first_name, :last_name, :password, :email)
   end
 end

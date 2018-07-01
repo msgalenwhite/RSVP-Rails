@@ -1,0 +1,21 @@
+<h1 class='header center'>Galen & Chris, 2018</h1>
+
+<h3 class='title'>Here is your weekly update email:</h3>
+
+<h3 class='title'>Attending:</h3>
+<% if @rsvps[:attending].length == 0 %>
+  <p>n/a</p>
+<% else %>
+  <% @rsvps[:attending].each do |name| %>
+    <li><%= name %></li>
+  <% end %>
+<% end %>
+
+<h3 class='title'>Not attending:</h3>
+<% if @rsvps[:not_attending].length == 0 %>
+  <p>n/a</p>
+<% else %>
+  <% @rsvps[:not_attending].each do |name| %>
+    <li><%= name %></li>
+  <% end %>
+<% end %>
