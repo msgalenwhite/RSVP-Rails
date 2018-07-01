@@ -5,9 +5,9 @@ let invitationWording = {
     <div className="invitation">
       The pleasure of your company is requested<br/>
       at the marriage of<br/>
-      <span className="brideandgroom">Anna</span><br/>
+      <span className="brideandgroom">Galen Hillary White</span><br/>
       and<br/>
-      <span className="brideandgroom">Kristof</span><br/>
+      <span className="brideandgroom">Christopher Francis Bimbo</span><br/>
       Saturday, the 13th of October<br/>
       (two thousand and eighteen)<br/>
     </div>,
@@ -15,7 +15,7 @@ let invitationWording = {
     <div className="reception">
       Ceremony and Reception<br/>
       to be held at<br/>
-      <span className="hotel">Castle Arendelle</span><br/>
+      <span className="hotel">Castle Manor Inn</span><br/>
     </div>
 }
 
