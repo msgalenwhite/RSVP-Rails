@@ -3,19 +3,19 @@
 <h3>Thank you, <%= @send_to_name %>, for RSVP'ing to Galen and Chris's wedding.  Here is a summary of the RSVP that you submitted:</h3>
 
 <h3>Attending:</h3>
-<% if @rsvps.attending.length == 0 %>
+<% if @rsvps[:attending].length == 0 %>
   <li>n/a</li>
 <% else %>
-  <% @rsvps.attending.each do |name| %>
+  <% @rsvps[:attending].each do |name| %>
     <li><%= name %></li>
   <% end %>
 <% end %>
 
 <h3>Not attending:</h3>
-<% if @rsvps.not_attending.length == 0 %>
+<% if @rsvps[:not_attending].length == 0 %>
   <li>n/a</li>
 <% else %>
-  <% @rsvps.not_attending.each do |name| %>
+  <% @rsvps[:not_attending].each do |name| %>
     <li><%= name %></li>
   <% end %>
 <% end %>
@@ -27,4 +27,4 @@
   <p><%= @dietary_restrictions %></p>
 <% end %>
 
-<p>If this doesn't look correct, or if you have any other concerns, please contact Galen at <%= ENV[GALEN_EMAIL] %>.</p>
+<p>If this doesn't look correct, or if you have any other concerns, please contact Galen at galen.h.white@gmail.com.</p>

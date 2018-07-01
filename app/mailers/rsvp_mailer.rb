@@ -3,7 +3,7 @@ class RsvpMailer < ApplicationMailer
     invite = user.rsvp.invite
     @rsvps = format_rsvps(invite.rsvps)
     @dietary_restrictions = invite.dietary_restrictions
-    @send_to_name = user.full_name
+    @send_to_name = user.rsvp.full_name
     @send_to_email = user.email
 
     mail(

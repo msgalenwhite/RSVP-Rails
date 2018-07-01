@@ -1,0 +1,66 @@
+@import 'colors';
+
+.castleLogo {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+  max-width: 600px;
+}
+
+.citiesList, .hotelsList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  .localCity {
+    text-align: center;
+    margin: 20px;
+  }
+  .localHotel {
+    text-align: center;
+    padding: 15px;
+  }
+  .cityName, .hotelName {
+    font-weight: bold;
+    color: $sangria;
+  }
+  .hotelName {
+    text-decoration: underline;
+  }
+  .hotelAddress, .hotelPhone, .distance {
+    font-size: .9em;
+  }
+}
+
+.smallerText {
+  font-size: .8em;
+  text-align: center;
+  min-width: 50px;
+}
+
+.hauntsList {
+  .localPlace {
+    background-color: $lighter-nude;
+    margin: 10px;
+    padding: 15px;
+    border: 3px solid $sangria;
+    border-radius: 10px;
+  }
+
+  .placeName {
+    font-weight: bold;
+    color: $sangria;
+    text-decoration: underline;
+    text-align: center;
+  }
+  .placeNote {
+    font-size: .9em;
+  }
+}
+
+.importantNote {
+  text-align: center;
+  font-size: 2em;
+  font-family: 'Merienda', cursive;
+  color: $sangria;
+}

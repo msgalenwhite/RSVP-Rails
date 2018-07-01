@@ -5,7 +5,7 @@ const PopUp = props => {
   const buttonToClose = "close_on_background_click:false;close_on_esc:false;"
   const closeAndBackModal = () => {
     props.clearForm()
-    window.location.href = '/'
+    window.location.href = '/wedding/rsvp'
   }
   const closeContinueModal = () => {
       window.location.href = `/invites/${props.inviteNum}`
@@ -15,12 +15,12 @@ const PopUp = props => {
 
       <h3 className='sub-header text-center pop-up'>{props.name}</h3>
       <button
-        className='general-button center'
+        className='general-button center button'
         onClick={closeAndBackModal}>
         No
       </button>
       <button
-        className='general-button center'
+        className='general-button center button'
         onClick={closeContinueModal}>
         Yes
       </button>
