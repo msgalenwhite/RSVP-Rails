@@ -7,6 +7,8 @@ class Api::V1::RsvpsController < ApplicationController
     invite = Invite.find(new_params[:invite_id])
     update_invite(invite, new_params)
 
+    RsvpMailer.send_out(current_user).deliver_now
+
     flash[:success] = "Your RSVP has been received!"
     render json: invite, status: 200
   end
