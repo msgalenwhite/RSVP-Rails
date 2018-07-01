@@ -1,5 +1,4 @@
 class Api::V1::InvitesController < ApplicationController
-  before_action :authenticate_user!
   protect_from_forgery unless: -> { request.format.json? }
 
   def find
@@ -7,12 +6,15 @@ class Api::V1::InvitesController < ApplicationController
     if params[:password] == ENV["WEDDING_PASSWORD"]
       test_params = [params[:first_name], params[:last_name]].map { |n| n.downcase.capitalize! }
 
-      target_rsvp = Rsvp.find(first_name: test_params[0],
-                              last_name: test_params[1])
+      first_name = test_params[0]
+      last_name = test_params[1]
+
+      target_rsvp = Rsvp.find_by first_name: first_name,
+                                 last_name: last_name
       if target_rsvp
         target_rsvp.update_attributes!(first_name: test_params[0],
-                                             last_name: test_params[1],
-                                             email: params["email"])
+                                       last_name: test_params[1],
+                                       email: params["email"])
 
         render json: target_rsvp, status: 200
       else

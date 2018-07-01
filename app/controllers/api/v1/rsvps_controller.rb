@@ -1,15 +1,16 @@
 class Api::V1::RsvpsController < ApplicationController
-  before_action :authenticate_user!
   protect_from_forgery unless: -> { request.format.json? }
 
   def update_all
     new_params = safe_params
     invite = Invite.find(new_params[:invite_id])
     update_invite(invite, new_params)
-    rsvp_info = invite.rsvps.map{ |r| {name: r.first_name, email: r.email} }
+    rsvp_info = invite.rsvps
 
     rsvp_info.each do |person|
-      RsvpMailer.send_out(person, invite.dietary_restrictions, invite.rsvps)
+      if person.email
+        RsvpMailer.send_out(person, invite.dietary_restrictions, rsvp_info).deliver_now
+      end
     end
 
     render json: invite, status: 200
