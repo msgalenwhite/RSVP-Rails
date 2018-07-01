@@ -19,7 +19,7 @@ plus_one_invites = [
   "Joel Garret",
   "Sara Landry",
   "Victoria Harrington",
-  "Plus-One-Test Account"
+  "Test Account"
 ]
 
 plus_one_invites.each do |person|

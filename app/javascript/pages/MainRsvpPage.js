@@ -9,6 +9,7 @@ class MainRsvpPage extends Component {
       firstName: "",
       lastName: "",
       password: "",
+      email: "",
       errorMessage: null,
       rsvp_info: null
     }
@@ -81,7 +82,8 @@ class MainRsvpPage extends Component {
         invite: {
           first_name: this.state.firstName,
           last_name: this.state.lastName,
-          password: this.state.password
+          password: this.state.password,
+          email: this.state.email
         }
       }
 
@@ -100,7 +102,8 @@ class MainRsvpPage extends Component {
     const requiredFields = [
       this.state.firstName,
       this.state.lastName,
-      this.state.password
+      this.state.password,
+      this.state.email
     ]
     let result = true
 
@@ -147,16 +150,22 @@ class MainRsvpPage extends Component {
               />
             </div>
             <TextInputField
+              name='email'
+              value={this.state.email}
+              onChange={this.handleTextChange}
+              label="Email:"
+            />
+            <TextInputField
               name='password'
               value={this.state.password}
               onChange={this.handleTextChange}
-              label="Password: "
+              label="Password from invitation: "
             />
             <button
               type='submit'
               className='button'
               onClick={this.handleSubmit}>
-              Submit
+              Find my Invitation
             </button>
           </form>
         </div>
