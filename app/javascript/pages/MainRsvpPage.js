@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import TextInputField from '../components/TextInputField'
 import PopUp from '../components/PopUp'
 
-class MainPage extends Component {
+class MainRsvpPage extends Component {
   constructor(props){
     super(props);
     this.state = {
@@ -130,35 +130,37 @@ class MainPage extends Component {
           and the password from your invitation.
         </h3>
         <div className='error'>{this.state.errorMessage}</div>
-
-        <form className='center' onSubmit={this.handleSubmit}>
-          <div>
+        <div className='form-div'>
+          <form className='center' onSubmit={this.handleSubmit}>
+            <div>
+              <TextInputField
+                name='firstName'
+                value={this.state.firstName}
+                onChange={this.handleTextChange}
+                label="First:"
+              />
+              <TextInputField
+                name='lastName'
+                value={this.state.lastName}
+                onChange={this.handleTextChange}
+                label="Last:"
+              />
+            </div>
             <TextInputField
-              name='firstName'
-              value={this.state.firstName}
+              name='password'
+              value={this.state.password}
               onChange={this.handleTextChange}
-              label="First:"
+              label="Password: "
+              type='password'
             />
-            <TextInputField
-              name='lastName'
-              value={this.state.lastName}
-              onChange={this.handleTextChange}
-              label="Last:"
-            />
-          </div>
-          <TextInputField
-            name='password'
-            value={this.state.password}
-            onChange={this.handleTextChange}
-            label="Password: "
-          />
-          <button
-            type='submit'
-            className='button'
-            onClick={this.handleSubmit}>
-            Submit
-          </button>
-        </form>
+            <button
+              type='submit'
+              className='button'
+              onClick={this.handleSubmit}>
+              Submit
+            </button>
+          </form>
+        </div>
         <PopUp
           name={name}
           inviteNum={inviteNum}
@@ -169,4 +171,4 @@ class MainPage extends Component {
   }
 }
 
-export default MainPage
+export default MainRsvpPage

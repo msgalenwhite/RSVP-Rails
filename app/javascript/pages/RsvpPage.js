@@ -112,7 +112,7 @@ class RsvpPage extends Component {
     })
     .then ( response => {
         if ( response.ok ) {
-          window.location.href = `invites/{this.state.inviteId}/updated`
+          window.location.href = `/wedding/updated_rsvp`
         } else {
           let errorMessage = `${response.status} (${response.statusText})`;
           let error = new Error(errorMessage);

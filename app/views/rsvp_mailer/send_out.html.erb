@@ -1,30 +1,30 @@
-<h1 class='header'>Galen & Chris, 2018</h1>
+<h1 class='header center'>Galen & Chris, 2018</h1>
 
-<h3>Thank you, <%= @send_to_name %>, for RSVP'ing to Galen and Chris's wedding.  Here is a summary of the RSVP that you submitted:</h3>
+<h3 class='title'>Thank you, <%= @send_to_name %>, for RSVP'ing to Galen and Chris's wedding.  Here is a summary of the RSVP that you submitted:</h3>
 
-<h3>Attending:</h3>
-<% if @rsvps.attending.length == 0 %>
-  <li>n/a</li>
+<h3 class='title'>Attending:</h3>
+<% if @rsvps[:attending].length == 0 %>
+  <p>n/a</p>
 <% else %>
-  <% @rsvps.attending.each do |name| %>
+  <% @rsvps[:attending].each do |name| %>
     <li><%= name %></li>
   <% end %>
 <% end %>
 
-<h3>Not attending:</h3>
-<% if @rsvps.not_attending.length == 0 %>
-  <li>n/a</li>
+<h3 class='title'>Not attending:</h3>
+<% if @rsvps[:not_attending].length == 0 %>
+  <p>n/a</p>
 <% else %>
-  <% @rsvps.not_attending.each do |name| %>
+  <% @rsvps[:not_attending].each do |name| %>
     <li><%= name %></li>
   <% end %>
 <% end %>
 
-<h3>Dietary Restrictions:</h3>
+<h3 class='title'>Dietary Restrictions:</h3>
 <% if @dietary_restrictions == "" %>
   <p>None.</p>
 <% else %>
   <p><%= @dietary_restrictions %></p>
 <% end %>
-
-<p>If this doesn't look correct, or if you have any other concerns, please contact Galen at <%= ENV[GALEN_EMAIL] %>.</p>
+<br/>
+<h3 class='title'>If this doesn't look correct, or if you have any other concerns, please contact Galen at <% ENV["GALEN_EMAIL"] %>.</h3>

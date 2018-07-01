@@ -1,0 +1,22 @@
+@import 'colors';
+
+.registryHeader {
+  margin-bottom: 40px;
+}
+
+.registryLinks {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  a {
+    background: white;
+    border-radius: 5px;
+    line-height: 100px;
+    margin: 10px;
+  }
+  .registryImage {
+    max-width: 300px;
+    padding: 25px 25px;
+    vertical-align: middle;
+  }
+}

@@ -1,16 +1,9 @@
 @import 'colors';
 
 .whereToPage {
-  a {
-    color: $sangria;
-    font-weight: bold;
-    text-decoration: none;
-  }
-  a:hover {
-    font-size: 1.1em;
-  }
   ul {
     list-style-type: none;
+    line-height: 1.4em;
   }
   li:before {
     font-family: 'FontAwesome';

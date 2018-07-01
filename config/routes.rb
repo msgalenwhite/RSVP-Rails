@@ -11,6 +11,15 @@ Rails.application.routes.draw do
       end
     end
   end
-  get '/invites/:id/updated' => 'invites#updated'
+
   resources :invites, only: [:show]
+
+  get '/wedding/invitation' => 'wedding#invitation'
+  get '/wedding/location' => 'wedding#location'
+  get '/wedding/transportation' => 'wedding#transportation'
+  get '/wedding/weather' => 'wedding#weather'
+  get '/wedding/registry' => 'wedding#registry'
+  get '/wedding/coolsite' => 'wedding#coolsite'
+  get '/wedding/rsvp' => 'wedding#rsvp'
+  get '/wedding/updated_rsvp' => 'wedding#updated'
 end

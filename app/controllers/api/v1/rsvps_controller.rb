@@ -9,7 +9,6 @@ class Api::V1::RsvpsController < ApplicationController
 
     RsvpMailer.send_out(current_user).deliver_now
 
-    flash[:success] = "Your RSVP has been received!"
     render json: invite, status: 200
   end
 

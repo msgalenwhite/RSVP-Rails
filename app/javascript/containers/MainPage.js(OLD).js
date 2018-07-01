@@ -7,7 +7,7 @@ import ReviewAndStoryPage from './ReviewAndStoryPage'
 import invitees from '../constants/Invitees'
 import passwords from '../constants/Passwords'
 
-class MainPage extends Component {
+class MainRsvpPage extends Component {
   constructor(props){
     super(props);
     this.state = {
@@ -344,4 +344,4 @@ class MainPage extends Component {
   }
 }
 
-export default MainPage
+export default MainRsvpPage
