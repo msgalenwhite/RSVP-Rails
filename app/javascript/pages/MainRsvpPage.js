@@ -128,26 +128,29 @@ class MainRsvpPage extends Component {
         <div className='greeting'>
           Galen and Chris are Getting Married!
         </div>
-        <h3 className='center title'>
-          Please enter your first and last name,<br/>
-          and the password from your invitation.
+        <h3 className='center'>
+          Help us find your party's information by entering your name and details below.
         </h3>
         <div className='error'>{this.state.errorMessage}</div>
         <div className='form-div'>
           <form className='center' onSubmit={this.handleSubmit}>
-            <div>
-              <TextInputField
-                name='firstName'
-                value={this.state.firstName}
-                onChange={this.handleTextChange}
-                label="First:"
-              />
-              <TextInputField
-                name='lastName'
-                value={this.state.lastName}
-                onChange={this.handleTextChange}
-                label="Last:"
-              />
+            <div className='name-div'>
+              <span className='name-span'>
+                <TextInputField
+                  name='firstName'
+                  value={this.state.firstName}
+                  onChange={this.handleTextChange}
+                  label="First:"
+                />
+              </span>
+              <span className='name-span'>
+                <TextInputField
+                  name='lastName'
+                  value={this.state.lastName}
+                  onChange={this.handleTextChange}
+                  label="Last:"
+                />
+              </span>
             </div>
             <TextInputField
               name='email'
