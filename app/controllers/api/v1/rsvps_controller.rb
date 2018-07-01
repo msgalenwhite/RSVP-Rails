@@ -25,11 +25,11 @@ class Api::V1::RsvpsController < ApplicationController
       invite.update_attributes!(plus_one: false)
 
       if new_params['plusOneName'] == ""
-        first_name: 'Plus'
-        last_name: 'One'
+        first_name = 'Plus'
+        last_name = 'One'
       else
-        first_name: new_params['plusOneName']
-        last_name: "(Plus One)"
+        first_name = new_params['plusOneName']
+        last_name = "(Plus One)"
       end
 
       Rsvp.create!(
