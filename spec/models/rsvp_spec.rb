@@ -13,15 +13,12 @@ describe Rsvp, :type => :model do
     it { should have_valid(:is_attending).when(true, false) }
     it { should_not have_valid(:is_attending).when(nil, "") }
 
-    it { should have_valid(:user_id).when(user.id, nil) }
-
     it { should have_valid(:role).when('guest', 'has_plus_one', 'is_plus_one') }
     it { should_not have_valid(:role).when(nil, "", "random_string") }
   end
 
   context 'associations' do
     it { belong_to(:invite) }
-    it { belong_to(:user) }
   end
 
   context 'methods' do

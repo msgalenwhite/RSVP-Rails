@@ -2,19 +2,15 @@
 
 <h3 class='title'>Thank you, <%= @send_to_name %>, for RSVP'ing to Galen and Chris's wedding.  Here is a summary of the RSVP that you submitted:</h3>
 
-<h3 class='title'>Attending:</h3>
-<% if @rsvps[:attending].length == 0 %>
-  <p>n/a</p>
-<% else %>
+<% if @rsvps[:attending].length != 0 %>
+  <h3 class='title'>Attending:</h3>
   <% @rsvps[:attending].each do |name| %>
     <li><%= name %></li>
   <% end %>
 <% end %>
 
-<h3 class='title'>Not attending:</h3>
-<% if @rsvps[:not_attending].length == 0 %>
-  <p>n/a</p>
-<% else %>
+<% if @rsvps[:not_attending].length != 0 %>
+  <h3 class='title'>Not attending:</h3>
   <% @rsvps[:not_attending].each do |name| %>
     <li><%= name %></li>
   <% end %>
