@@ -6,8 +6,11 @@ class Api::V1::RsvpsController < ApplicationController
     new_params = safe_params
     invite = Invite.find(new_params[:invite_id])
     update_invite(invite, new_params)
+    rsvp_info = invite.rsvps.map{ |r| {name: r.first_name, email: r.email} }
 
-    RsvpMailer.send_out(current_user).deliver_now
+    rsvp_info.each do |person|
+      RsvpMailer.send_out(person, invite.dietary_restrictions, invite.rsvps)
+    end
 
     render json: invite, status: 200
   end

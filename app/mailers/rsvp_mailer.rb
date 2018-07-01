@@ -1,10 +1,10 @@
 class RsvpMailer < ApplicationMailer
-  def send_out(user)
-    invite = user.rsvp.invite
-    @rsvps = format_rsvps(invite.rsvps)
-    @dietary_restrictions = invite.dietary_restrictions
-    @send_to_name = user.rsvp.full_name
-    @send_to_email = user.email
+  def send_out(user_hash, dietary_restrictions, rsvps)
+    @rsvps = format_rsvps(rsvps)
+    @dietary_restrictions = dietary_restrictions
+    @send_to_name = user_hash.name
+    @send_to_email = user_hash.email
+
 
     mail(
       to: @send_to_email,
