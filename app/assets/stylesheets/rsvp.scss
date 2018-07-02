@@ -16,16 +16,13 @@
 }
 .invitation, .reception, .greeting {
   color: $brick;
-  font-size: 30px;
+  font-size: 1.2em;
   text-align: center;
   font-family: 'Merienda', cursive;
 }
-.brideandgroom, .greeting {
-  font-size: 45px;
+.brideandgroom, .greeting, .hotel {
+  font-size: 1.5em;
   font-weight: bold;
-}
-.hotel {
-  font-size: 40px;
 }
 
 // CLICKABLE COMPONENTS on RSVP ENTRY
@@ -42,13 +39,7 @@
   justify-content: center;
   align-items: center;
 }
-.rsvp-div {
-  width: 60%;
-  margin: auto;
-  background: white;
-  border-radius: 10px;
-  padding: 1.5em;
-}
+
 .entry-div {
   margin: .5em;
 }
@@ -57,4 +48,29 @@
   display: flex;
   align-items: center;
   flex-direction: column;
+}
+
+@media screen and (max-width: 980px) {
+  body{
+    .rsvp-div {
+      width: 60%;
+      margin: auto;
+      background: white;
+      border-radius: 10px;
+      padding: 1.5em;
+    }
+  }
+}
+
+@media screen and (max-width: 640px) {
+  body{
+    .rsvp-div {
+      font-size: .8em;
+      width: 100%;
+      margin: auto;
+      background: white;
+      border-radius: 10px;
+      padding: .3em;
+    }
+  }
 }

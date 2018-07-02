@@ -39,14 +39,6 @@
 }
 
 .hauntsList {
-  .localPlace {
-    background-color: white;
-    margin: 1.5em 2em;
-    padding: 1em 2em;
-    border: 3px solid $sangria;
-    border-radius: 10px;
-  }
-
   .placeName {
     font-weight: bold;
     color: $sangria;
@@ -63,4 +55,28 @@
   font-size: 2em;
   font-family: 'Merienda', cursive;
   color: $sangria;
+}
+
+@media screen and (max-width: 980px) {
+  body{
+    .localPlace {
+      background-color: white;
+      margin: 1.5em 2em;
+      padding: 1em 2em;
+      border: 3px solid $sangria;
+      border-radius: 10px;
+    }
+  }
+}
+
+@media screen and (max-width: 640px) {
+  body{
+    .localPlace {
+      background-color: white;
+      margin: .5em;
+      padding: .5em;
+      border: 3px solid $sangria;
+      border-radius: 10px;
+    }
+  }
 }

@@ -56,3 +56,25 @@ p {
   margin: auto 1em;
   color: white;
 }
+
+@media screen and (max-width: 980px) {
+  body{
+    .page {
+      padding: 2em;
+      margin: 20px;
+      background-color: $light-nude;
+      min-height: 100vh;
+    }
+  }
+}
+
+@media screen and (max-width: 640px) {
+  body{
+    .page {
+      padding: .5em;
+      margin: .5em;
+      background-color: $light-nude;
+      min-height: 100vh;
+    }
+  }
+}
