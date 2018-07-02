@@ -47,9 +47,10 @@ input:focus {
 input[type=text], input[type=email], input[type=password], textarea {
   background-color: $lighter-nude;
   border: 2px solid $dark-sangria;
-  font-size: 1em;
+  font-size: .8em;
   padding: 5px 10px;
   border-radius: 10px;
+  font-family: 'Karma', serif;
 }
 
 // BUTTONS
@@ -164,13 +165,26 @@ form {
   .actions {
     text-align: center;
   }
+}
+.name-div {
+  display: flex;
+  justify-content: center;
 
+  .name-span {
+    margin: 1em;
+    width: 40%;
+  }
+}
+
+@media screen and (max-width: 640px) {
   .name-div {
-    display: flex;
-    justify-content: center;
-
-    .name-span {
-      margin: 1em;
-    }
+    display: block;
+    line-height: 0em;
+  }
+  .name-span {
+    margin: .2em;
+  }
+  form {
+    width: 100%;
   }
 }
