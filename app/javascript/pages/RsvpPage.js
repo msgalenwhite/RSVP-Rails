@@ -40,8 +40,9 @@ class RsvpPage extends Component {
 
   createPlusOne() {
     const plusOne = {
-      full_name: 'plusOne',
-      is_attending: false
+      full_name: 'Plus One',
+      is_attending: false,
+      role: 'is_plus_one'
     }
     return plusOne
   }
@@ -71,6 +72,7 @@ class RsvpPage extends Component {
           if (response.plus_one) {
             rsvp_array = rsvp_array.concat(this.createPlusOne())
           }
+          debugger
           this.setState({
             rsvps: rsvp_array,
             plusOneBoolean: response.plus_one,
