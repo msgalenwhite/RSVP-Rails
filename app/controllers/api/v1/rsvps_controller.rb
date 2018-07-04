@@ -9,7 +9,7 @@ class Api::V1::RsvpsController < ApplicationController
 
     rsvp_info.each do |person|
       if person.email
-        RsvpMailer.send_out(person, invite.dietary_restrictions, rsvp_info).deliver_now
+        RsvpMailer.send_out(person, invite.dietary_restrictions, rsvp_info).deliver_later
       end
     end
 
