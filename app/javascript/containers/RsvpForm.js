@@ -45,10 +45,10 @@ const RsvpForm = props => {
       })
     }
 
-    if (familyMember.full_name === 'plusOne') {
+    if (familyMember.role === 'is_plus_one') {
       let name = props.plusOneName
       if (name === "") {
-        name = 'Plus One'
+        name = familyMember.full_name
       }
       component =
         <div key="RSVPlusOne">

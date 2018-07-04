@@ -4,7 +4,9 @@ class Api::V1::RsvpsController < ApplicationController
   def update_all
     new_params = safe_params
     invite = Invite.find(new_params[:invite_id])
-    update_invite(invite, new_params)
+    invite.update_attributes!(dietary_restrictions: new_params['dietary_restrictions'])
+
+    update_rsvps(invite, new_params)
     rsvp_info = invite.rsvps
 
     rsvp_info.each do |person|
@@ -19,40 +21,42 @@ class Api::V1::RsvpsController < ApplicationController
   private
 
   def safe_params
-    params.permit(:invite_id, :dietary_restrictions, :plusOneName, :rsvps => [:id, :full_name, :is_attending])
+    params.permit(:invite_id, :dietary_restrictions, :plusOneName, :rsvps => [:id, :full_name, :is_attending, :role])
   end
 
-  def update_invite(invite, new_params)
-    invite.update_attributes!(dietary_restrictions: new_params['dietary_restrictions'])
+  def update_rsvps(invite, new_params)
+    new_params['rsvps'].each do |rsvp_info|
+      if rsvp_info['role'] == 'is_plus_one'
+        first_name = rsvp_info['full_name']
+        if new_params['plusOneName'] != ''
+          first_name = new_params['plusOneName']
+        end
+        last_name = '(Plus One)'
 
-    if invite.plus_one && new_params['rsvps'].length == 2 && new_params['rsvps'].last['is_attending']
-      invite.update_attributes!(plus_one: false)
+        if !rsvp_info['id']
+        # this is a plus one attendee that has NOT been put in our database yet
 
-      if new_params['plusOneName'] == ""
-        first_name = 'Plus'
-        last_name = 'One'
+          Rsvp.create!(
+            first_name: first_name,
+            last_name: last_name,
+            is_attending: rsvp_info['is_attending'],
+            role: 'is_plus_one',
+            invite: invite
+          )
+        else
+          rsvp = Rsvp.find(rsvp_info['id'])
+          rsvp.update!(
+            is_attending: rsvp_info['is_attending'],
+            first_name: first_name,
+            last_name: last_name
+          )
+        end
       else
-        first_name = new_params['plusOneName']
-        last_name = "(Plus One)"
-      end
-
-      Rsvp.create!(
-        first_name: first_name,
-        last_name: last_name,
-        is_attending: new_params['rsvps'].last['is_attending'],
-        role: 'is_plus_one',
-        invite: invite
-      )
-      update_rsvp(new_params['rsvps'].first)
-    else
-      new_params['rsvps'].each do |rsvp_info|
-        update_rsvp(rsvp_info)
+        rsvp = Rsvp.find(rsvp_info['id'])
+        rsvp.update!(is_attending: rsvp_info['is_attending'])
       end
     end
-  end
 
-  def update_rsvp(info)
-    target_rsvp = Rsvp.find(info['id'])
-    target_rsvp.update_attributes!(is_attending: info['is_attending'])
+    new_params['rsvps']
   end
 end

@@ -40,8 +40,9 @@ class RsvpPage extends Component {
 
   createPlusOne() {
     const plusOne = {
-      full_name: 'plusOne',
-      is_attending: false
+      full_name: 'Plus One',
+      is_attending: false,
+      role: 'is_plus_one'
     }
     return plusOne
   }
