@@ -72,7 +72,6 @@ class RsvpPage extends Component {
           if (response.plus_one) {
             rsvp_array = rsvp_array.concat(this.createPlusOne())
           }
-          debugger
           this.setState({
             rsvps: rsvp_array,
             plusOneBoolean: response.plus_one,
