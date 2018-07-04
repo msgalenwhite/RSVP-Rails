@@ -1,21 +1,24 @@
 <h1 class='header center'>Galen & Chris, 2018</h1>
 
-<h3 class='title'>Here is your weekly update email:</h3>
+<h3 class='title'>Here is your daily update email:</h3>
 
-<h3 class='title'>Attending:</h3>
-<% if @rsvps[:attending].length == 0 %>
-  <p>n/a</p>
-<% else %>
+<% if @rsvps[:attending].length != 0 %>
+  <h3 class='title'>Attending:</h3>
   <% @rsvps[:attending].each do |name| %>
     <li><%= name %></li>
   <% end %>
 <% end %>
 
-<h3 class='title'>Not attending:</h3>
-<% if @rsvps[:not_attending].length == 0 %>
-  <p>n/a</p>
-<% else %>
+<% if @rsvps[:not_attending].length != 0 %>
+  <h3 class='title'>Not attending:</h3>
   <% @rsvps[:not_attending].each do |name| %>
+    <li><%= name %></li>
+  <% end %>
+<% end %>
+
+<% if @rsvps[:has_not_responded].length != 0 %>
+  <h3 class='title'>Not yet responded:</h3>
+  <% @rsvps[:has_not_responded].each do |name| %>
     <li><%= name %></li>
   <% end %>
 <% end %>
