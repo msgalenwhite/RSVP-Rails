@@ -7,7 +7,6 @@ FactoryBot.define do
     is_attending false
     role 'guest'
 
-    user
     invite
   end
 end
