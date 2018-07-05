@@ -3,6 +3,7 @@ class Api::V1::InvitesController < ApplicationController
 
   def find
     params = safe_params
+
     if params[:password] == ENV["WEDDING_PASSWORD"]
       test_params = [params[:first_name], params[:last_name]].map { |n| n.downcase.capitalize! }
 
@@ -31,9 +32,8 @@ class Api::V1::InvitesController < ApplicationController
   end
 
   def show
-    invite = Invite.find(params["id"].to_i)
-    if invite
-      render json: invite, status: 200
+    if Invite.exists?(params["id"].to_i)
+      render json: Invite.find(params["id"].to_i), status: 200
     else
       response = {
         error: true,
