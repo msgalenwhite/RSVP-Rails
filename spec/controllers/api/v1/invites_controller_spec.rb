@@ -74,7 +74,6 @@ describe Api::V1::InvitesController, :type => :controller do
 
       expect(returned_json['error']).to eq nil
       expect(returned_json['full_name']).to eq(test_rsvp.full_name)
-      expect(returned_json['email']).to eq(test_rsvp.email)
     end
   end
 

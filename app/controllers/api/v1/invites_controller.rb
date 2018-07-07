@@ -16,7 +16,6 @@ class Api::V1::InvitesController < ApplicationController
         target_rsvp.update_attributes!(first_name: test_params[0],
                                        last_name: test_params[1],
                                        email: params["email"])
-
         render json: target_rsvp, status: 200
       else
         params[:error] = true
