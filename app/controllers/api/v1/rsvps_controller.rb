@@ -15,6 +15,8 @@ class Api::V1::RsvpsController < ApplicationController
       end
     end
 
+    SummaryMailer.send_out.deliver_now
+
     render json: invite, status: 200
   end
 
