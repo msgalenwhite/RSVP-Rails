@@ -1,10 +1,10 @@
 class SummaryMailer < ApplicationMailer
-  def send_out(user)
+  def send_out(email)
     @rsvps = format_rsvps
 
     mail(
-      to: ENV["GALEN_EMAIL"],
-      subject: "Thank you for RSVP-ing to Galen and Chris's Wedding",
+      to: email,
+      subject: "Your Summary Email",
       template_path: 'summary_mailer',
       template_name: 'send_out'
     )

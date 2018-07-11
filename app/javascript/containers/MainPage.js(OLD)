@@ -14,9 +14,9 @@ class MainRsvpPage extends Component {
       name: "",
       password: "",
 
-      continueToRsvp: false,
-      familyObject: {},
-      dietaryRestrictions: "",
+      // continueToRsvp: false,
+      // familyObject: {},
+      // dietaryRestrictions: "",
 
       continueToStory: false,
       stories: {
@@ -25,11 +25,11 @@ class MainRsvpPage extends Component {
       },
       email: "",
 
-      signInErrors: {
-        generic: false,
-        password: false,
-        name: false
-      }
+      // signInErrors: {
+      //   generic: false,
+      //   password: false,
+      //   name: false
+      // }
     }
   this.handleTextChange = this.handleTextChange.bind(this);
   // this.handlePlusOneChange = this.handlePlusOneChange.bind(this);

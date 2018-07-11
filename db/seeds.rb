@@ -55,8 +55,6 @@ baby_invites.each do |family_array|
 end
 
 invitees = [
-  ["Family-Test Account-1", "Family-Test Account-2"],
-
   ### Galen's Family
   ["Bert White", "Lori Schwartz"],
   ["Eli White", "Holly Lowe"],

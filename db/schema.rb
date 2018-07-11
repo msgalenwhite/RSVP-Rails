@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_01_194431) do
+ActiveRecord::Schema.define(version: 2018_07_11_220219) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 2018_07_01_194431) do
     t.boolean "plus_one", default: false, null: false
     t.text "dietary_restrictions"
     t.boolean "baby", default: false, null: false
+    t.boolean "plus_one_created", default: false
   end
 
   create_table "rsvps", force: :cascade do |t|

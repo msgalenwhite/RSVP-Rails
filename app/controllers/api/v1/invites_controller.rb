@@ -3,6 +3,7 @@ class Api::V1::InvitesController < ApplicationController
 
   def find
     params = safe_params
+
     if params[:password] == ENV["WEDDING_PASSWORD"]
       test_params = [params[:first_name], params[:last_name]].map { |n| n.downcase.capitalize! }
 
@@ -15,7 +16,6 @@ class Api::V1::InvitesController < ApplicationController
         target_rsvp.update_attributes!(first_name: test_params[0],
                                        last_name: test_params[1],
                                        email: params["email"])
-
         render json: target_rsvp, status: 200
       else
         params[:error] = true
@@ -31,9 +31,8 @@ class Api::V1::InvitesController < ApplicationController
   end
 
   def show
-    invite = Invite.find(params["id"].to_i)
-    if invite
-      render json: invite, status: 200
+    if Invite.exists?(params["id"].to_i)
+      render json: Invite.find(params["id"].to_i), status: 200
     else
       response = {
         error: true,

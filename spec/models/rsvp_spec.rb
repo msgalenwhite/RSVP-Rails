@@ -2,7 +2,6 @@ require 'rails_helper'
 
 describe Rsvp, :type => :model do
   let(:test_rsvp) { FactoryBot.create(:rsvp) }
-  let(:user) { FactoryBot.create(:user) }
 
   context 'validations' do
     it { should have_valid(:first_name).when("name") }

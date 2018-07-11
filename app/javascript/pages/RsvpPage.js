@@ -69,9 +69,10 @@ class RsvpPage extends Component {
         } else {
           let rsvp_array = response.rsvps
 
-          if (response.plus_one) {
+          if (response.plus_one && !response.plus_one_created) {
             rsvp_array = rsvp_array.concat(this.createPlusOne())
           }
+          
           this.setState({
             rsvps: rsvp_array,
             plusOneBoolean: response.plus_one,
