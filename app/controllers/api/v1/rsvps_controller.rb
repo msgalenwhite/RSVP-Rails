@@ -56,6 +56,7 @@ class Api::V1::RsvpsController < ApplicationController
             first_name: first_name,
             last_name: last_name
           )
+          invite.update!(plus_one_created: true)
         end
       else
         rsvp = Rsvp.find(rsvp_info['id'])
