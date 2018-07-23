@@ -21,5 +21,8 @@ class WeddingController < ApplicationController
   end
 
   def updated
-  end 
+  end
+
+  def schedule
+  end
 end

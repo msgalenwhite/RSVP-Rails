@@ -1,17 +1,18 @@
 import React, { Component } from 'react'
 import {Router, Route, browserHistory} from 'react-router'
 
+import WhereTo from '../pages/WhereTo'
 import MainRsvpPage from '../pages/MainRsvpPage'
 import RsvpPage from '../pages/RsvpPage'
 import RsvpUpdated from '../pages/RsvpUpdated'
 
 import HotelInfo from '../dummy_files/components/HotelInfo'
-import WhereTo from '../dummy_files/components/WhereTo'
 import Invitation from '../dummy_files/components/Invitation'
 import Transportation from '../dummy_files/components/Transportation'
 import About from '../dummy_files/components/About'
 import Weather from '../dummy_files/components/Weather'
 import Registry from '../dummy_files/components/Registry'
+import Schedule from '../dummy_files/components/Schedule'
 
 const App = props => {
   return(
@@ -51,6 +52,10 @@ const App = props => {
       <Route
         path='/wedding/updated_rsvp'
         component={RsvpUpdated}
+      />
+      <Route
+        path='/wedding/schedule'
+        component={Schedule}
       />
       <Route
         path='/invites/:id'

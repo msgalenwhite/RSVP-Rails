@@ -21,5 +21,6 @@ Rails.application.routes.draw do
   get '/wedding/registry' => 'wedding#registry'
   get '/wedding/coolsite' => 'wedding#coolsite'
   get '/wedding/rsvp' => 'wedding#rsvp'
+  get '/wedding/schedule' => 'wedding#schedule'
   get '/wedding/updated_rsvp' => 'wedding#updated'
 end
