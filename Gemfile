@@ -46,6 +46,7 @@ group :test do
 
   # even though we have 'shoulda_matchers', we need 'shoulda' to test associations using 'belong_to'
   gem 'shoulda'
+  gem 'test-unit'
 end
 
 

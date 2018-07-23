@@ -2,16 +2,23 @@ import React from 'react'
 import {Link} from 'react-router'
 
 const WhereTo = props => {
-  //we will bring RSVP live on July 1st.
-
-  let likeToDo = [
-    // {
-    //   path: '/wedding/invitation',
-    //   text: 'View the Invitation'
-    // },
+  const importantToDo = [
     {
       path: '/wedding/rsvp',
-      text: 'Make an RSVP'
+      text: 'Make an RSVP',
+      emphasis: true
+    },
+    {
+      path: '/wedding/schedule',
+      text: 'On the Day Schedule',
+      emphasis: true
+    }
+  ]
+
+  const likeToDo = [
+    {
+      path: '/wedding/invitation',
+      text: 'View the Invitation'
     },
     {
       path: '/wedding/location',
@@ -36,7 +43,17 @@ const WhereTo = props => {
     }
   ]
 
-  let initialList = likeToDo.map((item) => {
+  const importantList = importantToDo.map((item) => {
+    return (
+      <li key={item.path}>
+        <Link to={item.path}>
+          {item.text}
+        </Link>
+      </li>
+    )
+  })
+
+  const initialList = likeToDo.map((item) => {
     let returnedItem;
 
     if (item.aTag) {
@@ -59,14 +76,13 @@ const WhereTo = props => {
     )
   })
 
-  let comingSoon = [
+  const comingSoon = [
     "See Stories that Friends/Family have Shared",
-    "'On the Day' Schedule",
     "Rehearsal Dinner Information",
     "New England Weather in October"
   ]
 
-  let soonList = comingSoon.map((item) => {
+  const soonList = comingSoon.map((item) => {
     return (
       <li key={item} className='coming-soon-link'>{item}</li>
     )
@@ -79,12 +95,18 @@ const WhereTo = props => {
         Galen and Chris are Getting Married!
       </h3>
       <h3 className='title'>
-        What would you like to do?
+        Attendee Information
+      </h3>
+      <ul>
+        {importantList}
+      </ul>
+      <h3 className='title'>
+        Good to Know
       </h3>
       <ul>
         {initialList}
       </ul>
-      <h3 className='title'>Coming Soon:</h3>
+      <h3 className='title'>Coming Soon</h3>
       <ul>
         {soonList}
       </ul>
