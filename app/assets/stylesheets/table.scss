@@ -1,0 +1,18 @@
+@import 'colors';
+
+.table-div {
+  display: flex;
+  justify-content: center;
+}
+
+table {
+  .table-header {
+    font-size: 1em;
+    text-align: center;
+    color: $sangria;
+    font-weight: bold;
+  }
+  .table-text {
+    font-size: .8em;
+  }
+}

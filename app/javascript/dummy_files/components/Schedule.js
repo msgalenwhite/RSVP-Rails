@@ -37,8 +37,8 @@ const Schedule = props => {
   const eventsForTable = satEvents.map((eventObject) => {
     return (
       <tr key={`${eventObject.time} - ${eventObject.happening}`}>
-        <td>{eventObject.time}</td>
-        <td>{eventObject.happening}</td>
+        <td className='table-text'>{eventObject.time}</td>
+        <td className='table-text'>{eventObject.happening}</td>
       </tr>
     )
   })
@@ -48,17 +48,19 @@ const Schedule = props => {
       <h1 className='heading'>Weekend Schedule</h1>
       <h3 className='title'>October 13th (Saturday)</h3>
 
-      <table>
-        <thead>
-          <tr>
-            <th>Time</th>
-            <th>Event</th>
-          </tr>
-        </thead>
-        <tbody>
-          {eventsForTable}
-        </tbody>
-      </table>
+      <div className='table-div'>
+        <table>
+          <thead>
+            <tr>
+              <th className='table-header title'>Time</th>
+              <th className='table-header title'>Event</th>
+            </tr>
+          </thead>
+          <tbody>
+            {eventsForTable}
+          </tbody>
+        </table>
+      </div>
 
       <ReturnButton />
     </div>
