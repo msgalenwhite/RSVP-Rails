@@ -125,10 +125,10 @@ class MainRsvpPage extends Component {
     }
     return(
       <div>
-        <div className='greeting'>
+        <h1 className='greeting'>
           Galen and Chris are Getting Married!
-        </div>
-        <h3 className='center'>
+        </h1>
+        <h3 className='center title'>
           Help us find your party's information by entering your name and details below.
         </h3>
         <div className='error'>{this.state.errorMessage}</div>
