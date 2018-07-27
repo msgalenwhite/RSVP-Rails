@@ -14,13 +14,14 @@ Rails.application.routes.draw do
 
   resources :invites, only: [:show]
 
-  get '/wedding/invitation' => 'wedding#invitation'
-  get '/wedding/location' => 'wedding#location'
-  get '/wedding/transportation' => 'wedding#transportation'
-  get '/wedding/weather' => 'wedding#weather'
-  get '/wedding/registry' => 'wedding#registry'
-  get '/wedding/coolsite' => 'wedding#coolsite'
-  get '/wedding/rsvp' => 'wedding#rsvp'
-  get '/wedding/schedule' => 'wedding#schedule'
-  get '/wedding/updated_rsvp' => 'wedding#updated'
+  get '/wedding/invitation' => 'wedding#react'
+  get '/wedding/location' => 'wedding#react'
+  get '/wedding/transportation' => 'wedding#react'
+  get '/wedding/weather' => 'wedding#react'
+  get '/wedding/registry' => 'wedding#react'
+  get '/wedding/coolsite' => 'wedding#react'
+  get '/wedding/rsvp' => 'wedding#react'
+  get '/wedding/schedule' => 'wedding#react'
+  get '/wedding/updated_rsvp' => 'wedding#react'
+  get '/stories/new' => 'wedding#react'
 end

@@ -17,6 +17,10 @@ const WhereTo = props => {
 
   const likeToDo = [
     {
+      path: '/stories/new',
+      text: 'Submit a Story'
+    },
+    {
       path: '/wedding/invitation',
       text: 'View the Invitation'
     },
