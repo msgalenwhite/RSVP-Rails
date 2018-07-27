@@ -35,3 +35,5 @@ Of course, you can change the variable names to your own, but don't forget to ch
 ### Next Step:
 
 Add which RSVPs have a reserved room available, and remind them to call the Hotel.  Include it in the summary email so we know what is happening.  Also, include in the RSVP email.
+
+Finish adding stories.

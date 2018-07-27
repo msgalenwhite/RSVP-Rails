@@ -12,14 +12,14 @@ const WhereTo = props => {
       path: '/wedding/schedule',
       text: 'On the Day Schedule',
       emphasis: true
+    },
+    {
+      path: '/stories/new',
+      text: 'Submit a Story'
     }
   ]
 
   const likeToDo = [
-    {
-      path: '/stories/new',
-      text: 'Submit a Story'
-    },
     {
       path: '/wedding/invitation',
       text: 'View the Invitation'

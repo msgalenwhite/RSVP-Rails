@@ -11,8 +11,8 @@ class MainRsvpPage extends Component {
   constructor(props){
     super(props);
     this.state = {
-      name: "",
-      password: "",
+      // name: "",
+      // password: "",
 
       // continueToRsvp: false,
       // familyObject: {},
@@ -33,10 +33,10 @@ class MainRsvpPage extends Component {
     }
   this.handleTextChange = this.handleTextChange.bind(this);
   // this.handlePlusOneChange = this.handlePlusOneChange.bind(this);
-  this.handleStoryChange = this.handleStoryChange.bind(this);
-  this.handleEditStory = this.handleEditStory.bind(this)
-  this.storyInProgress = this.storyInProgress.bind(this)
-  this.resetStory = this.resetStory.bind(this)
+  // this.handleStoryChange = this.handleStoryChange.bind(this);
+  // this.handleEditStory = this.handleEditStory.bind(this)
+  // this.storyInProgress = this.storyInProgress.bind(this)
+  // this.resetStory = this.resetStory.bind(this)
 
   this.isSignInComplete = this.isSignInComplete.bind(this);
   this.handleSignInSubmit = this.handleSignInSubmit.bind(this);
@@ -44,7 +44,7 @@ class MainRsvpPage extends Component {
 
   this.handleRSVPSubmit = this.handleRSVPSubmit.bind(this);
   this.changeRSVP = this.changeRSVP.bind(this)
-  this.handleStorySubmit = this.handleStorySubmit.bind(this);
+  // this.handleStorySubmit = this.handleStorySubmit.bind(this);
   this.handleFullSubmit = this.handleFullSubmit.bind(this)
 
   this.handleBoxSelect = this.handleBoxSelect.bind(this);
@@ -73,50 +73,50 @@ class MainRsvpPage extends Component {
   //   })
   // }
 
-  handleStoryChange(event) {
-    this.setState({
-      stories: {
-        ...this.state.stories,
-        current: event.target.value
-      }
-    })
-  }
-
-  storyInProgress() {
-    if (this.state.stories.current === "") {
-      return false
-    }
-    return true;
-  }
-
-  resetStory(index) {
-    let storyObject = this.state.stories
-    let targetStory = storyObject.saved[index]
-    storyObject.saved.splice(index, 1)
-    storyObject.current = targetStory
-
-    this.setState({
-      stories: storyObject
-    })
-  }
-
-  handleEditStory(index) {
-    if (this.storyInProgress()) {
-      /*
-      ////have alert appear?
-      //have div appear?
-      "It looks like you are in the middle of a story.  If you continue, this story will be lost.  Do you wish to continue or return to your current story?"
-
-        - need 2 buttons:
-          - return to story
-            - makes div disappear, nothing else changes
-          - continue
-            - see num 2
-      */
-    } else {
-      this.resetStory(index)
-    }
-  }
+  // handleStoryChange(event) {
+  //   this.setState({
+  //     stories: {
+  //       ...this.state.stories,
+  //       current: event.target.value
+  //     }
+  //   })
+  // }
+  //
+  // storyInProgress() {
+  //   if (this.state.stories.current === "") {
+  //     return false
+  //   }
+  //   return true;
+  // }
+  //
+  // resetStory(index) {
+  //   let storyObject = this.state.stories
+  //   let targetStory = storyObject.saved[index]
+  //   storyObject.saved.splice(index, 1)
+  //   storyObject.current = targetStory
+  //
+  //   this.setState({
+  //     stories: storyObject
+  //   })
+  // }
+  //
+  // handleEditStory(index) {
+  //   if (this.storyInProgress()) {
+  //     /*
+  //     ////have alert appear?
+  //     //have div appear?
+  //     "It looks like you are in the middle of a story.  If you continue, this story will be lost.  Do you wish to continue or return to your current story?"
+  //
+  //       - need 2 buttons:
+  //         - return to story
+  //           - makes div disappear, nothing else changes
+  //         - continue
+  //           - see num 2
+  //     */
+  //   } else {
+  //     this.resetStory(index)
+  //   }
+  // }
 
   // isSignInComplete () {
   //   if (this.state.name === "" || this.state.password === "") {
@@ -228,20 +228,20 @@ class MainRsvpPage extends Component {
   //   })
   // }
 
-  handleStorySubmit() {
-    let newStory = this.state.stories.current
-    let allStories = this.state.stories.saved
-
-    if (newStory !== "") {
-      allStories.push(newStory)
-      this.setState({
-        stories: {
-          current: "",
-          saved: allStories
-        }
-      })
-    }
-  }
+  // handleStorySubmit() {
+  //   let newStory = this.state.stories.current
+  //   let allStories = this.state.stories.saved
+  //
+  //   if (newStory !== "") {
+  //     allStories.push(newStory)
+  //     this.setState({
+  //       stories: {
+  //         current: "",
+  //         saved: allStories
+  //       }
+  //     })
+  //   }
+  // }
 
   handleFullSubmit() {
     //this is it, folks!
@@ -308,13 +308,13 @@ class MainRsvpPage extends Component {
         // rsvpStatus={this.state.familyObject}
         // changeRSVP={this.changeRSVP}
         // dietaryRestrictions={this.state.dietaryRestrictions}
-        stories={this.state.stories}
-        onChange={this.handleStoryChange}
-        handleStorySubmit={this.handleStorySubmit}
+        // stories={this.state.stories}
+        // onChange={this.handleStoryChange}
+        // handleStorySubmit={this.handleStorySubmit}
         handleEmailChange={this.handleTextChange}
         email={this.state.email}
-        handleEditStory={this.handleEditStory}
-        handleFullSubmit={this.handleFullSubmit}
+        // handleEditStory={this.handleEditStory}
+        // handleFullSubmit={this.handleFullSubmit}
       />
     } else {
       renderedComponent =
