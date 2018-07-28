@@ -30,7 +30,7 @@ class SummarySetup
 
   def send_email
     @emails.each do |email|
-      SummaryMailer.send_out(email, @rsvps)
+      SummaryMailer.send_out(email, @rsvps).deliver_now
     end
   end
 end
