@@ -45,6 +45,7 @@ describe SummarySetup, :type => :model do
       message_delivery = instance_double(ActionMailer::MessageDelivery)
       expect( SummaryMailer ).to receive(:send_out).with(ENV['GALEN_EMAIL'], @response).and_return(message_delivery)
       expect( SummaryMailer ).to receive(:send_out).with(ENV['CHRIS_EMAIL'], @response).and_return(message_delivery)
+      allow(message_delivery).to receive(:deliver_now)
 
       SummarySetup.new.send_email
     end
