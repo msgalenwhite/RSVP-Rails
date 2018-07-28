@@ -90,7 +90,7 @@ invitees = [
   ["Eddie Bimbo", "Deb Bimbo", "Amanda Killbride"],
   ["Teresa Bimbo Daly", "John Daly", "Angela Daly"],
   ["Amarie Yoder", "Sam Yoder", "Emma Yoder", "Rachel Yoder"],
-  ["Susan Bimbo Nazzaro"],
+  ["Susan Bimbo Nazzaro"], #needs plus one
   ["Will McCreary"],
 
   ### Groomsmen

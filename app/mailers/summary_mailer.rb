@@ -1,6 +1,8 @@
 class SummaryMailer < ApplicationMailer
-  def send_out(email)
-    @rsvps = format_rsvps
+  def send_out(email, rsvp_info)
+    @accepted = rsvp_info[:accepted]
+    @rejected = rsvp_info[:rejected]
+    @has_not_responded = rsvp_info[:has_not_responded]
 
     mail(
       to: email,
@@ -8,27 +10,5 @@ class SummaryMailer < ApplicationMailer
       template_path: 'summary_mailer',
       template_name: 'send_out'
     )
-  end
-
-  private
-
-  def format_rsvps
-    rsvp_array = Rsvp.all
-
-    attending = []
-    not_attending = []
-
-    rsvp_array.each do |person|
-      if person.is_attending
-        attending << "#{person.full_name} - Updated at: #{person.updated_at}"
-      else
-        not_attending << "#{person.full_name} - Updated at: #{person.updated_at}"
-      end
-    end
-
-    {
-      attending: attending,
-      not_attending: not_attending
-    }
   end
 end
