@@ -14,12 +14,10 @@ class SummarySetup
       has_not_responded: []
     }
 
-    website_created_date = Date::strptime('01-07-2018',"%d-%m-%Y")
-
     rsvps.each do |rsvp|
       if rsvp.is_attending
         return_hash[:accepted] << rsvp.full_name
-      elsif rsvp.updated_at > website_created_date
+      elsif rsvp.updated_at != rsvp.created_at
         return_hash[:rejected] << rsvp.full_name
       else
         return_hash[:has_not_responded] << rsvp.full_name
