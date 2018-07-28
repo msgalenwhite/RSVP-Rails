@@ -15,7 +15,7 @@ class SummarySetup
     }
 
     website_created_date = Date::strptime('01-07-2018',"%d-%m-%Y")
-    binding.pry
+
     rsvps.each do |rsvp|
       if rsvp.is_attending
         return_hash[:accepted] << rsvp.full_name
