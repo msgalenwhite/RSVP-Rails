@@ -18,6 +18,10 @@
  */
 @import 'colors';
 
+.hide-button {
+  visibility: hidden;
+}
+
 .flash {
   color: white;
   text-align: center;
