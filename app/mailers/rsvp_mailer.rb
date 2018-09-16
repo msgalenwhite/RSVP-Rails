@@ -5,12 +5,25 @@ class RsvpMailer < ApplicationMailer
     @send_to_name = user_rsvp.full_name
     @send_to_email = user_rsvp.email
 
-
     mail(
       to: @send_to_email,
       subject: "Thank you for RSVP-ing to Galen and Chris's Wedding",
       template_path: 'rsvp_mailer',
       template_name: 'send_out'
+    )
+  end
+
+  def rooms_available(email)
+    mail(
+      to: email,
+      subject: "Galen and Chris's Wedding Announcements"
+    )
+  end
+
+  def wedding_party(email)
+    mail(
+      to: email,
+      subject: "Wedding Party Announcements"
     )
   end
 

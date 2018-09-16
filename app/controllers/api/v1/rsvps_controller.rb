@@ -15,13 +15,7 @@ class Api::V1::RsvpsController < ApplicationController
       end
     end
 
-    # emails = [ENV['GALEN_EMAIL'], ENV['CHRIS_EMAIL']]
-    #
-    # emails.each do |email|
-    #   SummaryMailer.send_out(email).deliver_now
-    # end
     SummarySetup.new.send_email
-
 
     render json: invite, status: 200
   end
