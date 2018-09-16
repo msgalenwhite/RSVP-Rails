@@ -6,14 +6,14 @@ class InviteSummarySetup
   end
 
   def group_rsvps
-    invitations = Invite.all.joins(:rsvps)
+    invitations = Invite.all
     responses = []
     separating_line = "\n\n#{'~' * 12}\n\n"
     tab = "  -"
 
     invitations.each do |invite|
       responses << separating_line
-      if invite.dietary_restrictions
+      if invite.dietary_restrictions && invite.dietary_restrictions != ""
         responses << "Dietary Restrictions: #{invite.dietary_restrictions}"
       end
 
