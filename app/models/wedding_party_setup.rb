@@ -13,7 +13,7 @@ class WeddingPartySetup
     "Carrie Reisinger",
     "Andy Reisinger",
     "Sarah Huebsch",
-    "Ava Taussig"
+    "Ava Taussig",
     "Bert White",
     "Lori Schwartz",
     "Leslie Allen",

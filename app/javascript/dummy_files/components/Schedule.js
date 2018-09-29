@@ -21,7 +21,7 @@ const Schedule = props => {
       happening: "Galen and Chris's First Dance"
     },
     {
-      time: "6:00 pm",
+      time: "5:30 pm",
       happening: "Toasts and Dinner"
     },
     {
@@ -30,7 +30,7 @@ const Schedule = props => {
     },
     {
       time: "10:00 pm",
-      happening: "Quiet Hours Begin"
+      happening: "DJ's music has to stop, but the party can continue!"
     }
   ]
 
