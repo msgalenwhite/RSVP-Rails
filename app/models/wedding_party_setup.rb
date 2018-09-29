@@ -27,9 +27,9 @@ class WeddingPartySetup
   def wedding_party_emails
     emails = WEDDING_PARTY.map do |name|
       full_name = name.split()
-      Rsvp.where(first_name: full_name[0], last_name: full_name[1]).pluck(:email)
+      Rsvp.where(first_name: full_name[0], last_name: full_name[1]).pluck(:email).first
     end
-    emails.compact
+    emails.flatten.compact
   end
 
   def send_out
