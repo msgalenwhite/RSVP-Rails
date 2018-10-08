@@ -1,5 +1,5 @@
 import React from 'react'
-import ReturnButton from '../dummy_files/components/ReturnButton'
+import ReturnButton from '../plain_pages/ReturnButton'
 
 const RsvpUpdated = props => {
 

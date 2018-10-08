@@ -8,13 +8,13 @@ import RsvpUpdated from '../pages/RsvpUpdated'
 import ShareStories from '../pages/ShareStories'
 import StorySummary from '../pages/StorySummary'
 
-import HotelInfo from '../dummy_files/components/HotelInfo'
-import Invitation from '../dummy_files/components/Invitation'
-import Transportation from '../dummy_files/components/Transportation'
-import About from '../dummy_files/components/About'
-import Weather from '../dummy_files/components/Weather'
-import Registry from '../dummy_files/components/Registry'
-import Schedule from '../dummy_files/components/Schedule'
+import HotelInfo from '../plain_pages/HotelInfo'
+import Invitation from '../plain_pages/Invitation'
+import Transportation from '../plain_pages/Transportation'
+import About from '../plain_pages/About'
+import Weather from '../plain_pages/Weather'
+import Registry from '../plain_pages/Registry'
+import Schedule from '../plain_pages/Schedule'
 
 const App = props => {
   return(
