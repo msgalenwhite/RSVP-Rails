@@ -10,7 +10,6 @@ class ShareStories extends Component {
         current: '',
         saved: []
       },
-      email: '',
       submitter: '',
       alertMessage: '',
       finalMessage: ''
@@ -146,7 +145,6 @@ class ShareStories extends Component {
       this.setState({ alertMessage: '' })
       const formPayload = {
         stories: this.state.stories.saved,
-        email: this.state.email,
         submitter: this.state.submitter
       }
       this.sendStories(formPayload)
@@ -163,7 +161,6 @@ class ShareStories extends Component {
           handleStorySubmit={this.handleStorySubmit}
           handleEditStory={this.handleEditStory}
           alertMessage={this.state.alertMessage}
-          email={this.state.email}
           submitter={this.state.submitter}
           handleFullSubmit={this.handleFullSubmit}
           handleTextChange={this.handleTextChange}
