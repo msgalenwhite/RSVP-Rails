@@ -1,7 +1,7 @@
 import React from 'react'
 
 import ReturnButton from './ReturnButton'
-import invitationWording from '../../constants/Invitation'
+import invitationWording from '../constants/Invitation'
 
 const Invitation = props => {
   return(
