@@ -25,7 +25,7 @@ class Api::V1::StoriesController < ApplicationController
 
   private
   def safe_params
-    params.permit(:email, :submitter, :stories => [])
+    params.permit(:submitter, :stories => [])
   end
 
   def page_params

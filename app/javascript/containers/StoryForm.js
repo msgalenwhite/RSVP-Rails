@@ -12,14 +12,12 @@ const StoryForm = props => {
   })
 
   const submitButton =
-    <div className='center'>
-      <button
-        className='button'
-        onClick={props.handleFullSubmit}
-      >
-        Submit Stories
-      </button>
-    </div>
+    <button
+      className='button'
+      onClick={props.handleFullSubmit}
+    >
+      Submit Stories
+    </button>
 
   const continueButton =
     <div className='center'>
@@ -69,14 +67,6 @@ const StoryForm = props => {
             name='submitter'
             label='Your Name: '
             value={props.submitter}
-            onChange={props.handleTextChange}
-          />
-        </span>
-        <span className='name-span'>
-          <TextInputField
-            name='email'
-            label='Email: '
-            value={props.email}
             onChange={props.handleTextChange}
           />
         </span>
