@@ -5,6 +5,8 @@ import WhereTo from '../pages/WhereTo'
 import MainRsvpPage from '../pages/MainRsvpPage'
 import RsvpPage from '../pages/RsvpPage'
 import RsvpUpdated from '../pages/RsvpUpdated'
+import ShareStories from '../pages/ShareStories'
+import StorySummary from '../pages/StorySummary'
 
 import HotelInfo from '../dummy_files/components/HotelInfo'
 import Invitation from '../dummy_files/components/Invitation'
@@ -60,6 +62,14 @@ const App = props => {
       <Route
         path='/invites/:id'
         component={RsvpPage}
+      />
+      <Route
+        path='/stories/new'
+        component={ShareStories}
+      />
+      <Route
+        path='/stories/all'
+        component={StorySummary}
       />
     </Router>
   )

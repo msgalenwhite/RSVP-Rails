@@ -1,20 +1,40 @@
 import React from 'react'
+import { Link } from 'react-router'
 
 import Story from '../components/Story'
 import StoryInProgress from '../components/StoryInProgress'
+import TextInputField from '../components/TextInputField'
+import StoryInfo from '../constants/StoryInfo'
 
 const StoryForm = props => {
+  const storyIntro = StoryInfo.sharePageIntro.map((paragraph) => {
+    return <p key={paragraph}>{paragraph}</p>
+  })
 
-
-  let storyIntro =
-    <div className="storyIntro">
-      <h3 className="heading">Stories</h3>
-      <p>Do you have an embarrassing story of the Bride or Groom that you think would make an excellent wedding toast?</p>
-      <p>Please, share it here instead.  We would like to keep our wedding a positive experience for all, and ask that all toasts or stories shared at the wedding be heart-felt or comical without embarrassing the Bride or Groom and ruining their experience.</p>
-      <p>Stories shared here will still make it to Anna and Kristof, and will be curated into an album that they can enjoy for years to come.</p>
+  const submitButton =
+    <div className='center'>
+      <button
+        className='button'
+        onClick={props.handleFullSubmit}
+      >
+        Submit Stories
+      </button>
     </div>
 
+  const continueButton =
+    <div className='center'>
+      <p>{props.finalMessage}</p>
+      <Link to='/stories/all'>
+        <button className='button'>
+          Take me to the stories!
+        </button>
+      </Link>
+    </div>
+
+  const button = props.finalMessage ? continueButton : submitButton
+
   let stories = [
+    <h3 className='title center' key='alert'>{props.alertMessage}</h3>,
     <StoryInProgress
       key='storyInProgress'
       storyText={props.stories.current}
@@ -36,10 +56,32 @@ const StoryForm = props => {
       />
     )
   })
+
   return(
     <div>
-      {storyIntro}
+      <div className="storyIntro">
+        {storyIntro}
+      </div>
       {stories}
+      <div className='name-div'>
+        <span className='name-span'>
+          <TextInputField
+            name='submitter'
+            label='Your Name: '
+            value={props.submitter}
+            onChange={props.handleTextChange}
+          />
+        </span>
+        <span className='name-span'>
+          <TextInputField
+            name='email'
+            label='Email: '
+            value={props.email}
+            onChange={props.handleTextChange}
+          />
+        </span>
+      </div>
+      {button}
     </div>
   )
 }
