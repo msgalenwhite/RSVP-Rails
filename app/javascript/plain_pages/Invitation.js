@@ -10,7 +10,9 @@ const Invitation = props => {
       <br/>
       <br/>
       {invitationWording.reception}
-      <br/>
+      <div className='barcode'>
+        <img src='https://i.imgur.com/plj1nDg.png' />
+      </div>
       <ReturnButton />
     </div>
   )

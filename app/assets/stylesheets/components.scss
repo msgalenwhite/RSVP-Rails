@@ -85,6 +85,12 @@ input[type=text], input[type=email], input[type=password], textarea {
   justify-content: space-around;
 }
 
+.barcode {
+  display: flex;
+  justify-content: center;
+  margin: 1em;
+}
+
 // Links
 a {
   color: $sangria;
