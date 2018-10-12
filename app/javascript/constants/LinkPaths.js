@@ -6,7 +6,7 @@ const linkPaths = {
     },
     {
       path: '/wedding/schedule',
-      text: 'On the Day Schedule'
+      text: 'Weekend Schedule'
     },
     {
       path: '/stories/new',
@@ -34,10 +34,6 @@ const linkPaths = {
       path: '/wedding/registry',
       text: 'View the Registry'
     },
-    // {
-    //   path: '/wedding/weather',
-    //   text: 'October Weather'
-    // },
     {
       path: '/wedding/coolsite',
       text: 'What a cool site!'

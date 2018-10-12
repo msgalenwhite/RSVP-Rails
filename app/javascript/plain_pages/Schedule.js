@@ -3,7 +3,6 @@ import ReturnButton from './ReturnButton'
 import scheduleInfo from '../constants/ScheduleInfo'
 
 const Schedule = props => {
-  console.log(scheduleInfo)
   const eventsList = []
   for (var day in scheduleInfo) {
     eventsList.push(<h3 className='title' key={day}>{day}</h3>)
