@@ -3,7 +3,7 @@ import ReturnButton from './ReturnButton'
 
 const Schedule = props => {
 
-  const satEvents = [
+  const events = [
     {
       time: "1:30 pm",
       happening: "Family Photos Start"
@@ -34,7 +34,7 @@ const Schedule = props => {
     }
   ]
 
-  const eventsForTable = satEvents.map((eventObject) => {
+  const eventsForTable = events.map((eventObject) => {
     return (
       <tr key={`${eventObject.time} - ${eventObject.happening}`}>
         <td className='table-text'>{eventObject.time}</td>
