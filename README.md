@@ -2,7 +2,9 @@
 
 ### RSVP Site - Rails
 
-An app to allow guests to submit RSVPs online rather than mailing in traditional RSVP cards.  Also contains information about the wedding itself, so that guest can remain up to date.
+An app to allow guests to submit RSVPs online rather than mailing in traditional RSVP cards.  Also contains information about the wedding itself (time, date, location, nearby things to do for fun) so that guest can remain up to date and enjoy themselves if it's a destination wedding.
+
+Also allows guests to submit stories about the bride and groom that other guests (and the happy couple) can enjoy!
 
 ### Initialize the database
 This project uses a postgresql database.
@@ -30,4 +32,4 @@ WEDDING_PASSWORD
 GALEN_EMAIL
 CHRIS_EMAIL
 
-Of course, you can change the variable names to your own, but don't forget to change the code references.
+Of course, you can change the variable names to your own, but don't forget to change the code references.  In this case Galen was the bride and Chris was the groom.
